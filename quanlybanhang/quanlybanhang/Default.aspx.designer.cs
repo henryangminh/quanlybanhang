@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUI {
+namespace quanlybanhang {
     
     
     public partial class _Default {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BUS.Interfaces
+namespace DAO.Interfaces
 {
-    public interface IBus<T> where T:class
+    public interface IDal<T> where T:class
     {
         void GetAll();
         void GetById(int id);

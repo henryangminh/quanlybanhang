@@ -44,12 +44,10 @@
     <Compile Include="CTHDBUS.cs" />
     <Compile Include="GiaoHangBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
-    <Compile Include="Interfaces\IBus.cs" />
     <Compile Include="KhachHangBUS.cs" />
     <Compile Include="LoaiThietBiBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThietBiBUS.cs" />
-    <Compile Include="ThietBiDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

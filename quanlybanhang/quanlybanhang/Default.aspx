@@ -18,21 +18,22 @@
         </div>        
     </form>
 
-
-    <div class="col-sm-5">
-        <table class="table table-bordered" id="tblProduct">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Tên thiết bị</th>
-                    <th>Loại thiết bị</th>
-                    <th>Đơn giá</th>
-                    <th>Số lượng tồn</th>
-                </tr>
-            </thead>
-            <tbody id="tbl_ThietBi" runat="server"></tbody>
-        </table>
-    </div>
+    <form id="frmProduct">
+        <div class="col-sm-5">
+            <table class="table table-bordered" id="tblProduct">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tên thiết bị</th>
+                        <th>Loại thiết bị</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng tồn</th>
+                    </tr>
+                </thead>
+                <tbody id="tbl_ThietBi" runat="server"></tbody>
+            </table>
+        </div>
+    </form>
 
     <div class="col-sm-2" style="display: flex;justify-content: center;align-items: center;">
         <button type="button" class="btn btn-default" id="btnSelect">Chọn</button>
@@ -44,10 +45,17 @@
                 <tr>
                     <th>Tên thiết bị</th>
                     <th>Số lượng</th>
+                    <th>Thành tiền</th>
                     <th></th>
                 </tr>
             </thead>
+            <tbody id="tblSelectedProduct">
+
+            </tbody>
         </table>
+        <div style="display: -webkit-box;">
+            <h3>Tổng tiền:</h3> <h3 id="lblTotalPrice"></h3>
+        </div>
     </div>
 
     <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">

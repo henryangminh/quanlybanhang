@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-
+    
 </head>
 <body>
     <form runat="server">
@@ -36,6 +36,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <script src="Scripts/func.js"></script>
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

@@ -26,17 +26,12 @@ namespace DAO
             throw new NotImplementedException();
         }
 
-        public void GetAll()
+        public DataTable GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        DataTable IDal<KhachHangDTO>.GetAll()
+        public KhachHangDTO GetById(int id)
         {
             throw new NotImplementedException();
         }

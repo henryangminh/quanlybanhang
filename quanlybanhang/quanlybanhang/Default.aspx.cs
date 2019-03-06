@@ -13,23 +13,23 @@ namespace quanlybanhang
 {
     public partial class _Default : Page
     {
-        ThietBiBUS tb = new ThietBiBUS();
-        LoaiThietBiBUS ltb = new LoaiThietBiBUS();
+        ThietBiBUS tbBus = new ThietBiBUS();
+        LoaiThietBiBUS ltbBus = new LoaiThietBiBUS();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable a = tb.GetAll();
-            DataTable b = ltb.GetAll();
+            DataTable tb = tbBus.GetAll();
+            DataTable ltb = ltbBus.GetAll();
             List<LoaiThietBiDTO> LoaiThietBiDTOs = new List<LoaiThietBiDTO>();
 
 
-            foreach (DataRow ltb_row in b.Rows)
+            foreach (DataRow ltb_row in ltb.Rows)
             {
                 
                 LoaiThietBiDTO _LoaiThietBiDTO = new LoaiThietBiDTO(int.Parse(ltb_row.ItemArray[0].ToString()), ltb_row.ItemArray[1].ToString());
                 LoaiThietBiDTOs.Add(_LoaiThietBiDTO);
                 
             }
-            foreach (DataRow row in a.Rows)
+            foreach (DataRow row in tb.Rows)
             {
                 HtmlTableRow row2 = new HtmlTableRow();
                 foreach (var item in row.ItemArray)
@@ -41,13 +41,12 @@ namespace quanlybanhang
                     cell.InnerText = item.ToString();
                     if (row2.Cells.Count == 0)
                     {
-                        cell.InnerHtml = "<input type='checkbox'>";
+                        cell.InnerHtml = "<input type='checkbox' id='chkSelected' value='"+ item +"'>";
                     }
                     if (row2.Cells.Count == 2)
                     {
-                        foreach (var i in LoaiThietBiDTOs)
-                            if (item.ToString() == i.Id.ToString())
-                                cell.InnerText = i.TypeName;
+                        LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
+                        cell.InnerText = loaiThietBiDTO.TypeName;
                     }
                     
                     row2.Cells.Add(cell);

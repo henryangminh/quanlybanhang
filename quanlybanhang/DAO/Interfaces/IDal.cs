@@ -10,7 +10,7 @@ namespace DAO.Interfaces
     public interface IDal<T> where T:class
     {
         DataTable GetAll();
-        void GetById(int id);
+        T GetById(int id);
         void Add(T entity);
         void Edit(T entity);
         void Delete(int id);

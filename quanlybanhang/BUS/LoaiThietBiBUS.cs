@@ -16,5 +16,10 @@ namespace BUS
         {
             return a.GetAll();
         }
+
+        public LoaiThietBiDTO GetById(int id)
+        {
+            return a.GetById(id);
+        }
     }
 }

@@ -13,21 +13,6 @@ namespace DAO
 {
     public class ThietBiDAO : Connection, IDal<ThietBiDTO>
     {
-        public DataTable GetAll()
-        {
-            try
-            {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from ThietBi",conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
         public void Add(ThietBiDTO entity)
         {
             throw new NotImplementedException();
@@ -43,15 +28,24 @@ namespace DAO
             throw new NotImplementedException();
         }
 
- 
+        public DataTable GetAll()
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from ThietBi", conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
-
-
-        public void GetById(int id)
+        public ThietBiDTO GetById(int id)
         {
             throw new NotImplementedException();
         }
-
-      
     }
 }

@@ -8,15 +8,21 @@ namespace DTO.Entities
 {
     public class ThietBiDTO
     {
-        private int id, typeid, qty;
-        private string name;
-       
-        private double price;
+        public int TBId { get; set; }
+        public string TBName { get; set; }
+        public int LTBId { get; set; }
+        public int Price { get; set; }
+        public int Qty { get; set; }
 
-        public string Name { get => name; set => name = value; }
-        public int Typeid { get => typeid; set => typeid = value; }
-        public int Qty { get => qty; set => qty = value; }
-        public double Price { get => price; set => price = value; }
-        public int Id { get => id; set => id = value; }
+        public ThietBiDTO() { }
+
+        public ThietBiDTO(int _TBId, string _TBName, int _LTBId, int _Price, int _Qty)
+        {
+            TBId = _TBId;
+            TBName = _TBName;
+            LTBId = _LTBId;
+            Price = _Price;
+            Qty = _Qty;
+        }
     }
 }

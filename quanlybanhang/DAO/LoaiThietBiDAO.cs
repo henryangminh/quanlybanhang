@@ -43,10 +43,27 @@ namespace DAO
             }
         }
 
-        public void GetById(int id)
+        public LoaiThietBiDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from LoaiThietBi where LTBId = '" + id + "'", conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    return new LoaiThietBiDTO()
+                    {
+                        Id = Convert.ToInt32(dr["LTBId"]),
+                        TypeName = Convert.ToString(dr["LTBName"])
+                    };
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
         }
-
     }
 }

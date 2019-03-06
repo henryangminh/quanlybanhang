@@ -20,7 +20,7 @@
 
 
     <div class="col-sm-5">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="tblProduct">
             <thead>
                 <tr>
                     <th></th>
@@ -35,11 +35,11 @@
     </div>
 
     <div class="col-sm-2" style="display: flex;justify-content: center;align-items: center;">
-        <button type="button" class="btn btn-default">Chọn</button>
+        <button type="button" class="btn btn-default" id="btnSelect">Chọn</button>
     </div>
 
     <div class="col-sm-5">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="tblSelected">
             <thead>
                 <tr>
                     <th>Tên thiết bị</th>
@@ -56,7 +56,7 @@
 
     <!--Modal-->
     <form id="frmLapHoaDon">
-        <asp:TextBox ID="TextBox1" runat="server" Width="757px"></asp:TextBox>
+        <!--<asp:TextBox ID="TextBox1" runat="server" Width="757px"></asp:TextBox>-->
         <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">

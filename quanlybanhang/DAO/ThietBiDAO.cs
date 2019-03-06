@@ -1,14 +1,33 @@
 ﻿using DAO.Interfaces;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.Common;
 
 namespace DAO
 {
-    public class ThietBiDAO : IDal<ThietBiDTO>
+    public class ThietBiDAO : Connection, IDal<ThietBiDTO>
     {
+        public DataTable GetAll()
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from ThietBi",conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public void Add(ThietBiDTO entity)
         {
             throw new NotImplementedException();
@@ -24,14 +43,15 @@ namespace DAO
             throw new NotImplementedException();
         }
 
-        public void GetAll()
-        {
-            throw new NotImplementedException();
-        }
+ 
+
+
 
         public void GetById(int id)
         {
             throw new NotImplementedException();
         }
+
+      
     }
 }

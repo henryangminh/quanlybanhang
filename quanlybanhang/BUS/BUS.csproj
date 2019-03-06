@@ -50,6 +50,10 @@
     <Compile Include="ThietBiBUS.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{c44f22b7-525c-41f6-8fa4-da42b3c4fe8a}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{ae7bccbd-dca8-4c02-9899-5ecf5f0e2d94}</Project>
       <Name>DTO</Name>

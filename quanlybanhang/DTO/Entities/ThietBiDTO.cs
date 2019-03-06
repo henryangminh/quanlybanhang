@@ -6,22 +6,17 @@ using System.Threading.Tasks;
 
 namespace DTO.Entities
 {
-    class ThietBiDTO
+    public class ThietBiDTO
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int TypeId { get; set; }
-        public double Price { get; set; }
-        public int Qty { get; set; }
+        private int id, typeid, qty;
+        private string name;
+       
+        private double price;
 
-        public ThietBiDTO(int id, string name, int typeid, double price, int qty)
-        {
-            Id = id;
-            Name = name;
-            TypeId = typeid;
-            Price = price;
-            Qty = qty;
-        }
-        public ThietBiDTO() { }
+        public string Name { get => name; set => name = value; }
+        public int Typeid { get => typeid; set => typeid = value; }
+        public int Qty { get => qty; set => qty = value; }
+        public double Price { get => price; set => price = value; }
+        public int Id { get => id; set => id = value; }
     }
 }

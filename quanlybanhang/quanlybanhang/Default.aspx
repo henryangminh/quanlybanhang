@@ -6,7 +6,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="txtSearch">Tìm theo tên</label>
-                <input type="text" id="txtSearch" class="form-control" >
+                <input type="text" id="txtSearch" class="form-control" runat="server">
             </div>
             <div class="form-group col-md-6">
                 <label for="slcType">Tìm theo loại</label>
@@ -25,10 +25,12 @@
                 <tr>
                     <th></th>
                     <th>Tên thiết bị</th>
+                    <th>Loại thiết bị</th>
                     <th>Đơn giá</th>
                     <th>Số lượng tồn</th>
                 </tr>
             </thead>
+            <tbody id="tbl_ThietBi" runat="server"></tbody>
         </table>
     </div>
 
@@ -54,6 +56,7 @@
 
     <!--Modal-->
     <form id="frmLapHoaDon">
+        <asp:TextBox ID="TextBox1" runat="server" Width="757px"></asp:TextBox>
         <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">

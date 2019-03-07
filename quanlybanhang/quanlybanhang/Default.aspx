@@ -17,7 +17,6 @@
             </div>
         </div>        
     </form>
-
     <form id="frmProduct">
         <div class="col-sm-5">
             <table class="table table-bordered" id="tblProduct">
@@ -34,6 +33,7 @@
             </table>
         </div>
     </form>
+    
 
     <div class="col-sm-2" style="display: flex;justify-content: center;align-items: center;">
         <button type="button" class="btn btn-default" id="btnSelect">Chọn</button>
@@ -63,65 +63,67 @@
     </div>
 
     <!--Modal-->
-    <form id="frmLapHoaDon">
-        <!--<asp:TextBox ID="TextBox1" runat="server" Width="757px"></asp:TextBox>-->
-        <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Lập hóa đơn</h5>
+    <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Lập hóa đơn</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row" style="display: flex;justify-content: center;align-items: center;">
+                        <input type="hidden" id="txtMaKhachHang" value="0" runat="server" />
+                        <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại: </label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server">
+                        </div>
+                        <button class="btn btn-primary" type="button">Thêm khách hàng mới</button>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group row" style="display: flex;justify-content: center;align-items: center;">
-                            <label for="txtCustomerID" class="col-sm-2 col-form-label">Mã Khách Hàng</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" id="txtCustomerID" placeholder="Mã Khách Hàng">
-                            </div>
-                            <button class="btn btn-primary" type="button">Thêm khách hàng mới</button>
-                        </div>
-                        <p>Địa chỉ: </p>
-                        <p>Điện thoại: </p>
+                    <p id="txtAddress">Địa chỉ: </p>
+                    <p id="txtCustomerID">Mã khách hàng: </p>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="txtSearch">Tên người nhận hàng:</label>
-                                <input type="text" id="txtTenKhachGiao" class="form-control">
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="txtSearch">Địa chỉ nhận hàng:</label>
-                                <input type="text" id="txtDiaChi" class="form-control">
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="txtSearch">Điện thoại người nhận hàng:</label>
-                                <input type="text" id="txtContact" class="form-control">
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="txtTenKhachGiao">Tên người nhận hàng:</label>
+                            <input type="text" id="txtTenKhachGiao" class="form-control" runat="server">
                         </div>
+                        <div class="col-lg-6">
+                            <label for="txtDiaChi">Địa chỉ nhận hàng:</label>
+                            <input type="text" id="txtDiaChi" class="form-control" runat="server">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="txtContact">Điện thoại người nhận hàng:</label>
+                            <input type="text" id="txtContact" class="form-control" runat="server">
+                        </div>
+                    </div>
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <h3>Các sản phẩm đã chọn</h3>
-                            </thead>
-                            <tbody id="tblSelectedProducts">
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                </tr>
-                            </tbody>
-                            <tfoot>
+                    <table id="tblSlc" class="table table-bordered" runat="server" style="margin-top:10px;">
+                        <thead>
+                            <tr>
+                                <th colspan="4">
+                                    Các sản phẩm đã chọn
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblSelectedProducts">
+                        </tbody>
+                        <tfoot>
                                 
-                            </tfoot>
-                        </table>
-                    </div>
+                        </tfoot>
+                    </table>
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="btnLap">Lập Hóa Đơn</button>
-                        <button type="button" class="btn btn-danger" id="btnDismiss" data-dismiss="modal">Hủy</button>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnLap" runat="server">Lập Hóa Đơn</button>
+                    <button type="button" class="btn btn-danger" id="btnDismiss" data-dismiss="modal">Hủy</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 
 </asp:Content>

@@ -65,11 +65,11 @@ function registerEvent() {
     })
 
     $('body').on('click', '#btnLapHoaDon', function () {
-        $('#tblSelectedProducts').empty();
+        $('#MainContent_tblSlc > tbody').empty();
         render = "";
         $.each(listSelected, function (i, item) {
             render += '<tr>' +
-                '<td>' + i + 1 + '</td>' +
+                '<td>' + (i + 1) + '</td>' +
                 '<td>' + item.ProductName + '</td>' +
                 '<td>' + item.SelectedQty + '</td>' +
                 '<td>' + item.SelectedQty * item.Price + '</td>' +
@@ -78,7 +78,7 @@ function registerEvent() {
         render += '<tr>' +
             '<td colspan="4"><h4>Tổng tiền: ' + TotalPrice + '</h4></td>' +
             '</tr>';
-        $('#tblSelectedProducts').append(render);
+        $('#MainContent_tblSlc > tbody').append(render);
     })
 }
 

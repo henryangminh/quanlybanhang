@@ -3,6 +3,7 @@
 }
 
 function registerEvent() {
+    var tempListSelected = [];
     var listSelected = [];
     var TotalPrice = 0;
 
@@ -13,14 +14,20 @@ function registerEvent() {
             Product.ProductName = $(this).parent('td').parent('tr').find('td:eq(1)').text();
             Product.Price = $(this).parent('td').parent('tr').find('td:eq(3)').text();
             Product.Qty = $(this).parent('td').parent('tr').find('td:eq(4)').text();
-            listSelected.push(Product);
+            Product.SelectedQty = 1;
+            tempListSelected.push(Product);
+        }
+        else {
+            index = tempListSelected.findIndex(x => x.TBId == $(this).val());
+            tempListSelected.splice(index, 1);
         }
     })
 
     $('body').on('click', '#btnSelect', function () {
         var render = '';
-        $.each(listSelected, function (i, item) {
-            render += '<tr val="'+ item.TBId +'">' +
+        $.each(tempListSelected, function (i, item) {
+            listSelected.push(item);
+            render += '<tr value="'+ item.TBId +'">' +
                 '<td>' + item.ProductName + '</td>' +
                 '<td><input type="number" class="form-control" value="1" min="1" id="txtQty"/></td>' +
                 '<td value="' + item.Price + '">' + item.Price + '</td>' +
@@ -30,23 +37,48 @@ function registerEvent() {
         })
         $('#tblSelectedProduct').append(render);
         $('#frmProduct').trigger('reset');
-        listSelected = [];
+        tempListSelected = [];
         $('#lblTotalPrice').text(TotalPrice);
     })
 
     $('body').on('click', '#btnDelRow', function () {
-        $(this).parent('tr').remove();
+        var thisObj = $(this);
+        var id = thisObj.parent('tr').attr('value');
+        thisObj.parent('tr').remove();
         TotalPrice = TotalPrice - parseInt($(this).parent('tr').find('td:eq(2)').text());
         $('#lblTotalPrice').text(TotalPrice);
+        index = listSelected.findIndex(x => x.TBId == id);
+        listSelected.splice(index, 1);
     })
 
     $('body').on('change', '#txtQty', function () {
-        var qty = $(this).val();
-        var price = $(this).parent('td').parent('tr').find('td:eq(2)').attr('value');
+        var thisObj = $(this);
+        var qty = thisObj.val();
+        var price = thisObj.parent('td').parent('tr').find('td:eq(2)').attr('value');
+        var id = thisObj.parent('td').parent('tr').attr('value');
         TotalPrice = TotalPrice - parseInt($(this).parent('td').parent('tr').find('td:eq(2)').text());
         $(this).parent('td').parent('tr').find('td:eq(2)').text(qty * price);
         TotalPrice = TotalPrice + qty * price;
+        index = listSelected.findIndex(x => x.TBId == id);
+        listSelected[index].SelectedQty = qty;
         $('#lblTotalPrice').text(TotalPrice);
+    })
+
+    $('body').on('click', '#btnLapHoaDon', function () {
+        $('#tblSelectedProducts').empty();
+        render = "";
+        $.each(listSelected, function (i, item) {
+            render += '<tr>' +
+                '<td>' + i + 1 + '</td>' +
+                '<td>' + item.ProductName + '</td>' +
+                '<td>' + item.SelectedQty + '</td>' +
+                '<td>' + item.SelectedQty * item.Price + '</td>' +
+                '</tr>';
+        })
+        render += '<tr>' +
+            '<td colspan="4"><h4>Tổng tiền: ' + TotalPrice + '</h4></td>' +
+            '</tr>';
+        $('#tblSelectedProducts').append(render);
     })
 }
 

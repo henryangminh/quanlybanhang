@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">
-        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#LapHoaDon">Lập hóa đơn</button>
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#LapHoaDon" id="btnLapHoaDon">Lập hóa đơn</button>
     </div>
 
     <!--Modal-->
@@ -96,6 +96,23 @@
                                 <input type="text" id="txtContact" class="form-control">
                             </div>
                         </div>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <h3>Các sản phẩm đã chọn</h3>
+                            </thead>
+                            <tbody id="tblSelectedProducts">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                
+                            </tfoot>
+                        </table>
                     </div>
 
                     <div class="modal-footer">

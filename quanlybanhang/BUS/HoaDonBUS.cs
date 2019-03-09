@@ -1,4 +1,5 @@
-﻿using DTO.Entities;
+﻿using DAO;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,10 @@ namespace BUS
 {
     public class HoaDonBUS
     {
-        
+        HoaDonDAO a = new HoaDonDAO();
+        public void Add(HoaDonDTO entity)
+        {
+            a.Add(entity);
+        }
     }
 }

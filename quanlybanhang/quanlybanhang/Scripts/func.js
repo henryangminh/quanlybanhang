@@ -6,7 +6,11 @@ function registerEvent() {
     var tempListSelected = [];
     var listSelected = [];
     var TotalPrice = 0;
-
+   
+    $('body').on('click', '#btnCreateKH', function () {
+        $('#LapHoaDon').modal('hide');
+        $('#modal-add-editKH').modal('show');
+    });
     $('body').on('change', '#chkSelected', function () {
         if ($(this).is(":checked")) {
             Product = new Object();
@@ -63,7 +67,7 @@ function registerEvent() {
         listSelected[index].SelectedQty = qty;
         $('#lblTotalPrice').text(TotalPrice);
     })
-
+    //
     $('body').on('click', '#btnLapHoaDon', function () {
         $('#MainContent_tblSlc > tbody').empty();
         render = "";
@@ -80,6 +84,37 @@ function registerEvent() {
             '</tr>';
         $('#MainContent_tblSlc > tbody').append(render);
     })
+    //$('#btnLap').on('click', function (e) {
+    //    e.preventDefault();
+        
+    //    var kHId = parseInt($('#txtMaKhachHang').val());
+    //    var totalPrice = $('#lblTotalPrice').text(TotalPrice);
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: '/Default.aspx/SaveEntity',
+    //        data: {
+    //            Id: 0,
+    //            KHId: kHId,
+    //            TotalPrice: totalPrice
+    //        },
+    //        dataType: "json",
+
+    //        success: function (response) {
+
+    //            $('#modal-add-edit').modal('hide');
+    //            general.notify('Ghi thành công!', 'success');
+               
+    //        },
+    //        error: function (err) {
+    //            general.notify('Có lỗi trong khi ghi !', 'error');
+
+    //        },
+    //    });
+
+
+
+
+    //});
 }
 
 PageLoad();

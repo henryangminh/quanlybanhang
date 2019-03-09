@@ -76,7 +76,7 @@
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server">
                         </div>
-                        <button class="btn btn-primary" type="button">Thêm khách hàng mới</button>
+                        <button id="btnCreateKH" class="btn btn-primary" type="button" <%--data-toggle="modal" data-target="#modal-add-editKH" --%>>Thêm khách hàng mới</button>
                     </div>
                     <p id="txtAddress">Địa chỉ: </p>
                     <p id="txtCustomerID">Mã khách hàng: </p>
@@ -119,11 +119,60 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btnLap" runat="server">Lập Hóa Đơn</button>
+                    <button type="button" class="btn btn-success" id="btnLap" onserverclick="SaveInvoice" runat="server">Lập Hóa Đơn</button>
                     <button type="button" class="btn btn-danger" id="btnDismiss" data-dismiss="modal">Hủy</button>
                 </div>
             </div>
         </div>
     </div>
+    <!--Modal KH-->
+<div id="modal-add-editKH" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">THÊM KHÁCH HÀNG MỚI</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Họ tên</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtKHName"/>
+                            </div>
+                            
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Số điện thoại</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtKHContact" />
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Địa chỉ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtKHAddress" />
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSaveKH" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                        
+                        
+                    </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 </asp:Content>

@@ -1,12 +1,11 @@
 ﻿function PageLoad() {
-    registerEvent();
-}
-
-function registerEvent() {
     var tempListSelected = [];
     var listSelected = [];
     var TotalPrice = 0;
+    registerEvent(tempListSelected, listSelected, TotalPrice);
+}
 
+function registerEvent(tempListSelected, listSelected, TotalPrice) {
     $('body').on('change', '#chkSelected', function () {
         if ($(this).is(":checked")) {
             Product = new Object();
@@ -64,9 +63,16 @@ function registerEvent() {
         $('#lblTotalPrice').text(TotalPrice);
     })
 
+    /*
     $('body').on('click', '#btnLapHoaDon', function () {
         $('#MainContent_tblSlc > tbody').empty();
         render = "";
+        render += '<tr>' +
+            '<th colspan="4">Các sản phẩm đã chọn</th>' +
+            '</tr>' +
+            '<tr>' +
+            '<th>STT</th><th>Tên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th>' +
+            '</tr>';
         $.each(listSelected, function (i, item) {
             render += '<tr>' +
                 '<td>' + (i + 1) + '</td>' +
@@ -76,10 +82,40 @@ function registerEvent() {
                 '</tr>';
         })
         render += '<tr>' +
-            '<td colspan="4"><h4>Tổng tiền: ' + TotalPrice + '</h4></td>' +
+            '<td colspan="4" value="'+ TotalPrice +'"><h4>Tổng tiền: ' + TotalPrice + '</h4></td>' +
             '</tr>';
-        $('#MainContent_tblSlc > tbody').append(render);
+        //$('#MainContent_tblSlc > tbody').append(render);
+        $(render).appendTo($('#MainContent_tblSlc > tbody'))
+    })
+    */
+    $(document).ready(function () {
+        function getSelected() {
+            $('#tblSelectedProducts').empty();
+            render = "";
+            /*
+            render += '<tr>' +
+                '<th colspan="4">Các sản phẩm đã chọn</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>STT</th><th>Tên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th>' +
+                '</tr>';
+            */
+            $.each(listSelected, function (i, item) {
+                render += '<tr value="' + item.TBId + '">' +
+                    '<td>' + (i + 1) + '</td>' +
+                    '<td>' + item.ProductName + '</td>' +
+                    '<td>' + item.SelectedQty + '</td>' +
+                    '<td>>' + item.SelectedQty * item.Price + '</td>' +
+                    '</tr>';
+            })
+            render += '<tr>' +
+                '<td colspan="4" value="' + TotalPrice + '"><h4>Tổng tiền: ' + TotalPrice + '</h4></td>' +
+                '</tr>';
+            $(render).appendTo($('#tblSelectedProducts'))
+        }
+        $('#btnLapHoaDon').click(getSelected);
     })
 }
+
 
 PageLoad();

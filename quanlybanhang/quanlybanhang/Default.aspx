@@ -95,35 +95,34 @@
                             <input type="text" id="txtContact" class="form-control" runat="server">
                         </div>
                     </div>
-
-                    <table id="tblSlc" class="table table-bordered" runat="server" style="margin-top:10px;">
-                        <thead>
-                            <tr>
-                                <th colspan="4">
-                                    Các sản phẩm đã chọn
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblSelectedProducts">
-                        </tbody>
-                        <tfoot>
-                                
-                        </tfoot>
-                    </table>
+                    <asp:Panel runat="server" ID="pnlTblSelected">
+                        <table id="tblSlc" class="table table-bordered" style="margin-top: 10px;">
+                            <thead>
+                                <tr>
+                                    <th colspan="4">Các sản phẩm đã chọn
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblSelectedProducts">
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </asp:Panel>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btnLap" runat="server">Lập Hóa Đơn</button>
+                    <button type="button" class="btn btn-success" id="btnLap" > Lập Hóa Đơn </button>
+                    <!--<asp:Button ID="btnLap" CssClass="btn btn-success" OnClientClick="return GetTable()" Text="Lập Hóa Đơn" runat="server" />-->
                     <button type="button" class="btn btn-danger" id="btnDismiss" data-dismiss="modal">Hủy</button>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>

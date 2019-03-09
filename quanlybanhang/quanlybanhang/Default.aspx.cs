@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -41,7 +43,7 @@ namespace quanlybanhang
                     cell.InnerText = item.ToString();
                     if (row2.Cells.Count == 0)
                     {
-                        cell.InnerHtml = "<input type='checkbox' id='chkSelected' value='" + item + "'>";
+                        cell.InnerHtml = "<asp:CheckBox runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'></asp:CheckBox>";
                     }
                     if (row2.Cells.Count == 2)
                     {
@@ -57,13 +59,48 @@ namespace quanlybanhang
 
             btnLap.Attributes.Add("OnClick", "SaveInvoice");
         }
-
+        
         protected void SaveInvoice (object sender, EventArgs e)
         {
             int MaKhachHang = int.Parse(txtMaKhachHang.Value);
             string TenKhachGiao = txtTenKhachGiao.Value;
             string DiaChi = txtDiaChi.Value;
             string Contact = txtContact.Value;
+
+            foreach (Control ctrl in pnlTblSelected.Controls)
+            {
+
+            }
+        }
+
+        /*
+        public void GetTable(List<Object> selectedList)
+        {
+            string i = "get duoc";
+        }
+        */
+
+        [System.Web.Services.WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static int GetTable(List<Object> j)
+        {
+            return 0;
+        }
+        
+        protected void addListSelect(object sender, EventArgs e)
+        {
+            if(sender != null)
+            {
+                try
+                {
+                    Console.Write("Abc");
+                    //if((CheckBox))
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
     }
 }

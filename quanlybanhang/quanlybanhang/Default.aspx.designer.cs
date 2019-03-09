@@ -76,13 +76,13 @@ namespace quanlybanhang {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtContact;
         
         /// <summary>
-        /// tblSlc control.
+        /// pnlTblSelected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblSlc;
+        protected global::System.Web.UI.WebControls.Panel pnlTblSelected;
         
         /// <summary>
         /// btnLap control.
@@ -91,6 +91,6 @@ namespace quanlybanhang {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnLap;
+        protected global::System.Web.UI.WebControls.Button btnLap;
     }
 }

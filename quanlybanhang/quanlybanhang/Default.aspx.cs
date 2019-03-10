@@ -17,6 +17,7 @@ namespace quanlybanhang
     {
         ThietBiBUS tbBus = new ThietBiBUS();
         LoaiThietBiBUS ltbBus = new LoaiThietBiBUS();
+		HoaDonBUS hoaDonBUS = new HoaDonBUS();
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable tb = tbBus.GetAll();
@@ -57,20 +58,29 @@ namespace quanlybanhang
                 tbl_ThietBi.Controls.Add(row2);
             }
 
-            btnLap.Attributes.Add("OnClick", "SaveInvoice");
+            //btnLap.Attributes.Add("OnClick", "SaveInvoice");
         }
-        
+        [WebMethod]
+        public static string OnSubmit()
+        {
+            return "it worked";
+        }
         protected void SaveInvoice (object sender, EventArgs e)
         {
             int MaKhachHang = int.Parse(txtMaKhachHang.Value);
             string TenKhachGiao = txtTenKhachGiao.Value;
             string DiaChi = txtDiaChi.Value;
             string Contact = txtContact.Value;
+			int MaHD = 0;
+			int KhId = 1;
+			DateTime DateCreate = DateTime.Now;
+			int Total = 0;
+			HoaDonDTO hd = new HoaDonDTO(MaHD, KhId, DateCreate, Total);
+			hoaDonBUS.Add(hd);
+            //foreach (Control ctrl in pnlTblSelected.Controls)
+            //{
 
-            foreach (Control ctrl in pnlTblSelected.Controls)
-            {
-
-            }
+            //}
         }
 
         /*

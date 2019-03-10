@@ -116,6 +116,21 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
         $('#btnLapHoaDon').click(getSelected);
     })
 }
-
+function myFunction() {
+    var dataValue = 0;
+    $.ajax({
+        type: "POST",
+        url: "Default.aspx/OnSubmit",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+        },
+        success: function (result) {
+            alert("We returned: " + result);
+        }
+    });
+ 
+}
 
 PageLoad();

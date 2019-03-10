@@ -118,8 +118,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btnLap" > Lập Hóa Đơn </button>
-                    <!--<asp:Button ID="btnLap" CssClass="btn btn-success" OnClientClick="return GetTable()" Text="Lập Hóa Đơn" runat="server" />-->
+                    <button type="button" class="btn btn-success" id="btnLap" onclick="myFunction()" runat="server" > Lập Hóa Đơn </button>
+                    
                     <button type="button" class="btn btn-danger" id="btnDismiss" data-dismiss="modal">Hủy</button>
                 </div>
             </div>

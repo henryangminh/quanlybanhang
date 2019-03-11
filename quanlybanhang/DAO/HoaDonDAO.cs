@@ -14,32 +14,18 @@ namespace DAO
     {
         public void Add(HoaDonDTO entity)
         {
-            try
-            {
-                string sql = "INSERT INTO HoaDon VALUES(" + entity.Id + "," + entity.KHId + ",'" + entity.DateCreate + "'," + entity.TotalPrice + ")";
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                DataRowCollection rowCollection = dt.Rows;
-                // Instantiate a new row using the NewRow method.
-
-                DataRow r = dt.NewRow();
-                // Insert code to fill the row with values.
-
-                // Add the row to the DataRowCollection.
-                
-                    r["HDId"] = entity.Id;
-                    r["KHId"] = entity.KHId;
-                    r["DateCreate"] = entity.DateCreate;
-                    r["TotalPrice"] = entity.TotalPrice;
-                dt.Rows.Add(r);
-                SqlCommandBuilder cm = new SqlCommandBuilder(da);
-                da.Update(dt);
-
-            }
-            catch
-            {
-               
-            }
+            
+            SqlDataAdapter da = new SqlDataAdapter("Select * from HoaDon", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DataRow r = dt.NewRow();
+            r[0] = entity.Id;
+            r[1] = entity.KHId;
+            r[2] = entity.DateCreate;
+            r[3] = entity.TotalPrice;
+            dt.Rows.Add(r);
+            SqlCommandBuilder cm = new SqlCommandBuilder(da);
+            da.Update(dt);
         }
 
         public void Delete(int id)

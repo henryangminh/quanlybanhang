@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{C44F22B7-525C-41F6-8FA4-DA42B3C4FE8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quanlybanhang_winform", "quanlybanhang_winform\quanlybanhang_winform.csproj", "{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{C44F22B7-525C-41F6-8FA4-DA42B3C4FE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C44F22B7-525C-41F6-8FA4-DA42B3C4FE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C44F22B7-525C-41F6-8FA4-DA42B3C4FE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{37BA0611-4938-45CD-AB33-2B08CEAB14BA} = {9B63BEDE-9FD8-4AAB-AD30-3B8707EF04DA}
 		{AE7BCCBD-DCA8-4C02-9899-5ECF5F0E2D94} = {8A540306-5382-467C-8CD2-BA88714AFF40}
 		{C44F22B7-525C-41F6-8FA4-DA42B3C4FE8A} = {ADC64288-5631-4A6A-8D44-65893E40DF96}
+		{5FBAE5B2-5B3B-4D3E-AC88-D11F793ADCCA} = {E0FC48B3-65E1-4F14-999E-DF0A40842AB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {199C7ECD-9003-4300-AF35-F56AB2B91B0A}

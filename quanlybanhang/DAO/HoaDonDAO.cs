@@ -3,17 +3,29 @@ using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class HoaDonDAO : IDal<HoaDonDTO>
+    public class HoaDonDAO : Connection, IDal<HoaDonDTO>
     {
         public void Add(HoaDonDTO entity)
         {
-            throw new NotImplementedException();
+            
+            SqlDataAdapter da = new SqlDataAdapter("Select * from HoaDon", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DataRow r = dt.NewRow();
+            r[0] = entity.Id;
+            r[1] = entity.KHId;
+            r[2] = entity.DateCreate;
+            r[3] = entity.TotalPrice;
+            dt.Rows.Add(r);
+            SqlCommandBuilder cm = new SqlCommandBuilder(da);
+            da.Update(dt);
         }
 
         public void Delete(int id)

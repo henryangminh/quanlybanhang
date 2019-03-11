@@ -17,90 +17,97 @@ namespace quanlybanhang
     {
         ThietBiBUS tbBus = new ThietBiBUS();
         LoaiThietBiBUS ltbBus = new LoaiThietBiBUS();
+        static KhachHangBUS khBus = new KhachHangBUS();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable tb = tbBus.GetAll();
-            DataTable ltb = ltbBus.GetAll();
-            List<LoaiThietBiDTO> LoaiThietBiDTOs = new List<LoaiThietBiDTO>();
+           
+                DataTable tb = tbBus.GetAll();
+                DataTable ltb = ltbBus.GetAll();
+                //DataTable kh = khBus.GetByContact();
+                List<LoaiThietBiDTO> LoaiThietBiDTOs = new List<LoaiThietBiDTO>();
 
 
-            foreach (DataRow ltb_row in ltb.Rows)
-            {
-
-                LoaiThietBiDTO _LoaiThietBiDTO = new LoaiThietBiDTO(int.Parse(ltb_row.ItemArray[0].ToString()), ltb_row.ItemArray[1].ToString());
-                LoaiThietBiDTOs.Add(_LoaiThietBiDTO);
-
-            }
-            foreach (DataRow row in tb.Rows)
-            {
-                HtmlTableRow row2 = new HtmlTableRow();
-                foreach (var item in row.ItemArray)
+                foreach (DataRow ltb_row in ltb.Rows)
                 {
 
-                    var cell = new HtmlTableCell();
+                    LoaiThietBiDTO _LoaiThietBiDTO = new LoaiThietBiDTO(int.Parse(ltb_row.ItemArray[0].ToString()), ltb_row.ItemArray[1].ToString());
+                    LoaiThietBiDTOs.Add(_LoaiThietBiDTO);
 
-                    //var loai = this.
-                    cell.InnerText = item.ToString();
-                    if (row2.Cells.Count == 0)
+                }
+                foreach (DataRow row in tb.Rows)
+                {
+                    HtmlTableRow row2 = new HtmlTableRow();
+                    foreach (var item in row.ItemArray)
                     {
-                        cell.InnerHtml = "<asp:CheckBox runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'></asp:CheckBox>";
+
+                        var cell = new HtmlTableCell();
+
+                        //var loai = this.
+                        cell.InnerText = item.ToString();
+                        if (row2.Cells.Count == 0)
+                        {
+                            cell.InnerHtml = "<input type='checkbox' runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'/>";
+                        }
+                        if (row2.Cells.Count == 2)
+                        {
+                            LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
+                            cell.InnerText = loaiThietBiDTO.TypeName;
+                        }
+
+                        row2.Cells.Add(cell);
+
                     }
-                    if (row2.Cells.Count == 2)
-                    {
-                        LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
-                        cell.InnerText = loaiThietBiDTO.TypeName;
-                    }
-
-                    row2.Cells.Add(cell);
-
+                    tbl_ThietBi.Controls.Add(row2);
                 }
-                tbl_ThietBi.Controls.Add(row2);
-            }
-
-            btnLap.Attributes.Add("OnClick", "SaveInvoice");
+            //MaintainScrollPositionOnPostBack = false;
+            //findKH.Attributes.Add("AutoPostback", "false");
+            //btnFindKH.Attributes.Add("onclick", "return false");
         }
-        
-        protected void SaveInvoice (object sender, EventArgs e)
-        {
-            int MaKhachHang = int.Parse(txtMaKhachHang.Value);
-            string TenKhachGiao = txtTenKhachGiao.Value;
-            string DiaChi = txtDiaChi.Value;
-            string Contact = txtContact.Value;
 
-            foreach (Control ctrl in pnlTblSelected.Controls)
+
+
+        //btnLap.Attributes.Add("OnClick", "SaveInvoice");
+
+        [WebMethod]
+        public static void SaveInvoice(int KhId,int total)
             {
-
+                int Mahd = 0;
+                DateTime DateCreate = DateTime.Now;
+                HoaDonBUS hd = new HoaDonBUS();
+                HoaDonDTO entity = new HoaDonDTO(Mahd, KhId, DateCreate, total);
+                hd.Add(entity);
             }
-        }
-
-        /*
-        public void GetTable(List<Object> selectedList)
-        {
-            string i = "get duoc";
-        }
-        */
-
-        [System.Web.Services.WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static int GetTable(List<Object> j)
-        {
-            return 0;
-        }
         
-        protected void addListSelect(object sender, EventArgs e)
+            //public void LoadKH(object sender, EventArgs e)
+            //{
+            //    string contact = txtPhoneNumber.Value;
+            //    DataTable kh = khBus.GetByContact(contact);
+            //    txtCustomerID.Value = kh.Rows[0].ItemArray[0].ToString();
+            //    txtAddress.Value = kh.Rows[0].ItemArray[3].ToString();
+            //    txtCustomerName.Value = kh.Rows[0].ItemArray[1].ToString();
+
+            //}
+        [WebMethod]
+        public static KhachHangDTO GetKH(string contact)
         {
-            if(sender != null)
+            
+            DataTable kh = khBus.GetByContact(contact);
+            if (kh.Rows.Count > 0)
             {
-                try
-                {
-                    Console.Write("Abc");
-                    //if((CheckBox))
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                KhachHangDTO _khachhang = new KhachHangDTO(int.Parse(kh.Rows[0].ItemArray[0].ToString()), kh.Rows[0].ItemArray[1].ToString(), kh.Rows[0].ItemArray[2].ToString(), kh.Rows[0].ItemArray[3].ToString());
+                return _khachhang;
             }
+            else
+                return null;
         }
+
+        [WebMethod]
+        public static void SaveCTHD()
+        {
+            
+            
+        }
+
     }
 }

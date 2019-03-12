@@ -17,6 +17,7 @@ namespace DTO.Entities
         {
             this.Id = Id;
             this.TypeName = TypeName;
+            //cummit
         }
     }
 }

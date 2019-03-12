@@ -12,9 +12,22 @@ namespace DAO
 {
     public class KhachHangDAO : Connection, IDal<KhachHangDTO>
     {
+
         public void Add(KhachHangDTO entity)
         {
-            throw new NotImplementedException();
+
+            SqlDataAdapter da = new SqlDataAdapter("Select * from KhachHang", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DataRow r = dt.NewRow();
+            r[0] = entity.Id;
+            r[1] = entity.Name;
+            r[2] = entity.Contact;
+            r[3] = entity.Address;
+            dt.Rows.Add(r);
+            SqlCommandBuilder cm = new SqlCommandBuilder(da);
+            da.Update(dt);
+
         }
 
         public void Delete(int id)

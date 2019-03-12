@@ -20,5 +20,11 @@ namespace BUS
         {
             return a.GetByContact(contact);
         }
+       
+        public void Add(KhachHangDTO entity)
+        {
+
+            a.Add(entity);
+        }
     }
 }

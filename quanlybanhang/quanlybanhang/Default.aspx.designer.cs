@@ -49,6 +49,15 @@ namespace quanlybanhang {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtMaKhachHang;
         
         /// <summary>
+        /// txtKHContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtKHContact;
+        
+        /// <summary>
         /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -74,7 +83,7 @@ namespace quanlybanhang {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtCustomerID;
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtKHContact;
+        
         /// <summary>
         /// txtCustomerName control.
         /// </summary>
@@ -128,5 +137,14 @@ namespace quanlybanhang {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnLap;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSave;
     }
 }

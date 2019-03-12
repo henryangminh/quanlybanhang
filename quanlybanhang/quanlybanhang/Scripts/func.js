@@ -5,8 +5,16 @@ function PageLoad() {
     var TotalPrice = 0;
     registerEvent(tempListSelected, listSelected, TotalPrice);
 }
-
+function keyispressed(e) {
+    var charval = String.fromCharCode(e.keyCode);
+    if ((isNaN(charval)) && (e.which != 8)) { // BSP KB code is 8
+        e.preventDefault();
+    }
+    return true;
+}
 function registerEvent(tempListSelected, listSelected, TotalPrice) {
+    
+
     $('body').on('change', '#chkSelected', function () {
         if ($(this).is(":checked")) {
             Product = new Object();
@@ -25,6 +33,12 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
     $("[type='number']").keypress(function (evt) {
         evt.preventDefault();
     });
+    $('body').on('click', '#btnAddnewKH', function () {
+        $('#LapHoaDon').modal('hide');
+        $('#modal-add-KH').modal('show');
+
+    });
+
     $('body').on('click', '#btnSelect', function () {
         var render = '';
         $.each(tempListSelected, function (i, item) {
@@ -152,6 +166,8 @@ function LoadKH() {
         success: function (result) {
             if (result.d == null) {
                 alert("Sai số điện thoại hoặc số điện thoại chưa có");
+           
+                $('#formMuahang').trigger('reset');
             }
             else {
                 console.log(result)
@@ -165,81 +181,140 @@ function LoadKH() {
     });
 
 }
-function SaveHoaDon(TotalPrice) {
-    //var hdId = 0;
-    var khId = parseInt($('#MainContent_txtCustomerID').val());
-
-    var totalPrice = parseInt($('#txtTotalPrice').val());
-    var listCTHD = [];
-    var _customname;
-    if ($('#MainContent_txtTenKhachGiao').val() == "") {
-        _customname = $('#MainContent_txtCustomerName').val();
-    }
-    else {
-        _customname = $('#MainContent_txtTenKhachGiao').val();
-    }
-    var _address;
-    if ($('#MainContent_txtDiaChi').val() == "") {
-        _address = $('#MainContent_txtAddress').val();
-    }
-    else {
-        _address = $('#MainContent_txtDiaChi').val();
-    }
-    var _contact;
-    if ($('#MainContent_txtContact').val() == "") {
-        _contact = $('#MainContent_txtKHContact').val();
-    }
-    else {
-        _contact = $('#MainContent_txtContact').val();
-    }
-    var _gh = {
-        GHId: 0,
-        HDId: 0,
-        TotalPrice: totalPrice,
-        CustomerName: _customname,
-        DeliveryContact: _contact,
-        DeliveryAddress: _address,
-
-    };
- 
-    $.each(listSelected, function (i, item) {
-        var _cthdID = parseInt(item.TBId);
-        var _cthdQty = parseInt(item.SelectedQty);
-        var _cthdPrice = parseInt(item.SelectedQty) * parseInt(item.Price);
-        var _cthd = {
-            HDId:0,
-            TBId: _cthdID,
-            Qty: _cthdQty,
-            SubTotal:_cthdPrice,
-        };
-        listCTHD.push(_cthd);
-    })
-
+function SaveKH() {
+    var kHId = 0;
+    var Name = $('#txtAddKHName').val();
+    var Contact = $('#txtAddKHContact').val();
+    var Address = $('#txtAddKHAddress').val();
     $.ajax({
         type: "POST",
-        url: "Default.aspx/SaveInvoice",
+        url: "Default.aspx/SaveKhachHang",
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        data: JSON.stringify({ 'KhId': khId, 'total': totalPrice, 'listCTHD': listCTHD, 'GH': _gh}),
-       
+        data: JSON.stringify({ 'KHId': kHId, 'Name': Name, 'Contact': Contact, 'Address': Address }),
         //{
-        //    //mahd: hdid,
-        //    khid: khid,
-        //    total:  totalprice,
+        //        KHId: kHId,
+        //        Name: Name,
+        //        Contact: Contact,
+        //        Address: Address,
         //},
+       
         error: function (e) {
             console.log(e);
         },
         success: function (result) {
-            console.log('successSaveHD');
-            $('#formMuahang').trigger('reset');
-            $('#tblSelectedProducts').empty();
-            $('#LapHoaDon').modal('hide');
-            $('#tblSelectedProduct').empty();
-            $('#lblTotalPrice').text(0);
+            console.log('successSaveKH');
+            $('#formKH').trigger('reset');
+            $('#modal-add-KH').modal('hide');     
+            $('#LapHoaDon').modal('show');  
             
+            $.ajax({
+                type: "POST",
+                url: "Default.aspx/GetKH",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data:
+                    "{ contact: '" + Contact + "' }",
+                error: function (e) {
+
+                },
+                success: function (result) {
+                    
+                    
+                        console.log(result)
+                        $('#MainContent_txtCustomerID').val(result.d.Id);
+                        $('#MainContent_txtAddress').val(result.d.Address);
+                        $('#MainContent_txtCustomerName').val(result.d.Name);
+                        $('#MainContent_txtKHContact').val(result.d.Contact);
+                     $('#MainContent_txtPhoneNumber').val(Contact);
+                    
+                }
+            });
         }
     });
+
+}
+function SaveHoaDon(TotalPrice) {
+    //var hdId = 0;
+    var khId = parseInt($('#MainContent_txtCustomerID').val());
+    if (khId == 0) { alert("Khách hàng không tồn tại") }
+    else {
+        var totalPrice = parseInt($('#txtTotalPrice').val());
+        var listCTHD = [];
+        var _customname;
+        if ($('#MainContent_txtTenKhachGiao').val() == "") {
+            _customname = $('#MainContent_txtCustomerName').val();
+        }
+        else {
+            _customname = $('#MainContent_txtTenKhachGiao').val();
+        }
+        var _address;
+        if ($('#MainContent_txtDiaChi').val() == "") {
+            _address = $('#MainContent_txtAddress').val();
+        }
+        else {
+            _address = $('#MainContent_txtDiaChi').val();
+        }
+        var _contact;
+        if ($('#MainContent_txtContact').val() == "") {
+            _contact = $('#MainContent_txtKHContact').val();
+        }
+        else {
+            _contact = $('#MainContent_txtContact').val();
+        }
+        var _gh = {
+            GHId: 0,
+            HDId: 0,
+            TotalPrice: totalPrice,
+            CustomerName: _customname,
+            DeliveryContact: _contact,
+            DeliveryAddress: _address,
+
+        };
+
+        $.each(listSelected, function (i, item) {
+            var _cthdID = parseInt(item.TBId);
+            var _cthdQty = parseInt(item.SelectedQty);
+            var _cthdPrice = parseInt(item.SelectedQty) * parseInt(item.Price);
+
+            var _cthd = {
+                HDId: 0,
+                TBId: _cthdID,
+                Qty: _cthdQty,
+                SubTotal: _cthdPrice,
+            };
+            listCTHD.push(_cthd);
+        })
+
+        var _saleoff;
+        if (listSelected.length > 1) { _saleoff = 0.1 }
+        else { _saleoff = 0;}
+        $.ajax({
+            type: "POST",
+            url: "Default.aspx/SaveInvoice",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify({ 'KhId': khId, 'total': totalPrice, 'saleoff': _saleoff   , 'listCTHD': listCTHD, 'GH': _gh }),
+
+            //{
+            //    //mahd: hdid,
+            //    khid: khid,
+            //    total:  totalprice,
+            //},
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (result) {
+                console.log('successSaveHD');
+                $('#formMuahang').trigger('reset');
+                $('#tblSelectedProducts').empty();
+                $('#LapHoaDon').modal('hide');
+                $('#tblSelectedProduct').empty();
+                $('#lblTotalPrice').text(0);
+                alert("Lập hóa đơn thành công");
+            }
+        });
+    }
 }
 
 function LoadTypeData() {

@@ -76,18 +76,18 @@
                             <input type="hidden" id="txtKHContact" value="0" RUNAT="server"/>
                             <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại: </label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server">
+                                <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server" onkeydown="return keyispressed(event);">
                                 <button type="button" class="btn btn-primary" id="findKH"  onclick="LoadKH()">Tìm!</button>
                            
                             </div>
-                            <button class="btn btn-primary" type="button">Thêm khách hàng mới</button>
+                            <button class="btn btn-primary" id="btnAddnewKH" type="button">Thêm khách hàng mới</button>
                         </div>
                         <div class="form-group row" style="display: flex;">
                             <label for="txtAddress">Địa chỉ:</label>
                             <input type="text" id="txtAddress" class="form-control" runat="server" readonly/>
                         </div>
                         <div class="form-group row" style="display: flex;">
-                           <input type="hidden" id="txtCustomerID" class="form-control" runat="server"/>
+                           <input type="hidden" id="txtCustomerID" class="form-control" value="0" runat="server"/>
                         </div>
                         <div class="form-group row" style="display: flex;">
                             <label for="txtCustomerName">Tên khách hàng:</label>
@@ -96,15 +96,15 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="txtTenKhachGiao">Tên người nhận hàng:</label>
-                                <input type="text" id="txtTenKhachGiao" class="form-control" runat="server">
+                                <input type="text" id="txtTenKhachGiao" class="form-control" runat="server" placeholder="Để trống sẽ lấy mặc định">
                             </div>
                             <div class="col-lg-6">
                                 <label for="txtDiaChi">Địa chỉ nhận hàng:</label>
-                                <input type="text" id="txtDiaChi" class="form-control" runat="server">
+                                <input type="text" id="txtDiaChi" class="form-control" runat="server" placeholder="Để trống sẽ lấy mặc định">
                             </div>
                             <div class="col-lg-6">
                                 <label for="txtContact">Điện thoại người nhận hàng:</label>
-                                <input type="text" id="txtContact" class="form-control" runat="server">
+                                <input type="text" id="txtContact" class="form-control" runat="server" placeholder="Để trống sẽ lấy mặc định"  onkeydown="return keyispressed(event);">
                             </div>
                         </div>
                         <asp:Panel runat="server" ID="pnlTblSelected">
@@ -138,4 +138,51 @@
             </div>
         </div>
     </form>
+     <!--ModalKH-->
+    <div id="modal-add-KH" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Thêm Khách Hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="formKH">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Họ và tên</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtAddKHName"  />
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Số điện thoại</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtAddKHContact"  onkeydown="return keyispressed(event);" />
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Địa chỉ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtAddKHAddress"  />
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" onclick="SaveKH()" class="btn btn-success" runat="server">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 </asp:Content>

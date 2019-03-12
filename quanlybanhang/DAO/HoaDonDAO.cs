@@ -22,7 +22,8 @@ namespace DAO
             r[0] = entity.Id;
             r[1] = entity.KHId;
             r[2] = entity.DateCreate;
-            r[3] = entity.TotalPrice;
+            r[3] = entity.SaleOff;
+            r[4] = entity.TotalPrice;
             dt.Rows.Add(r);
             SqlCommandBuilder cm = new SqlCommandBuilder(da);
             da.Update(dt);

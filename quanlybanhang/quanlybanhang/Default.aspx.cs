@@ -69,14 +69,14 @@ namespace quanlybanhang
         //btnLap.Attributes.Add("OnClick", "SaveInvoice");
 
         [WebMethod]
-        public static void SaveInvoice(int KhId, int total, List<CTHDDTO> listCTHD, GiaoHangDTO GH)
+        public static void SaveInvoice(int KhId, int total, double saleoff,List<CTHDDTO> listCTHD, GiaoHangDTO GH)
         {
             CTHDBUS cthd = new CTHDBUS();
             int Mahd = 0;
             DateTime DateCreate = DateTime.Now;
             HoaDonBUS hd = new HoaDonBUS();
 
-            HoaDonDTO entity = new HoaDonDTO(Mahd, KhId, DateCreate, total);
+            HoaDonDTO entity = new HoaDonDTO(Mahd, KhId, DateCreate, saleoff, total);
 
             CTHDBUS cTHDBUS = new CTHDBUS();
             GiaoHangBUS giaoHangBUS = new GiaoHangBUS();
@@ -130,9 +130,11 @@ namespace quanlybanhang
 
 
         [WebMethod]
-        public static void SaveCTHD()
+        public static void SaveKhachHang(int KHId, string Name, string Contact, string Address)
         {
-            
+            KhachHangBUS _KHBus = new KhachHangBUS();
+            KhachHangDTO _KH = new KhachHangDTO(KHId, Name, Contact, Address);
+            _KHBus.Add(_KH);
             
         }
 

@@ -31,6 +31,17 @@
             this.tabConTrol = new System.Windows.Forms.TabControl();
             this.tbpThietBi = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtEditProductPrice = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtEditProductQty = new System.Windows.Forms.TextBox();
+            this.cbxEditProductType = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtEditProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.grvProduct = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +52,8 @@
             this.btnEditProduct = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddProduct = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPriceAdd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtQtyAdd = new System.Windows.Forms.TextBox();
             this.cbxAddProduct = new System.Windows.Forms.ComboBox();
@@ -60,25 +73,37 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEditProduct = new System.Windows.Forms.TextBox();
-            this.cbxEditProductType = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtEditProductQty = new System.Windows.Forms.TextBox();
-            this.txtPriceAdd = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtEditProductPrice = new System.Windows.Forms.TextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
+            this.grvProductType = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSearchProductType = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnAddProductType = new System.Windows.Forms.Button();
+            this.txtProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLTBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditProductType = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblProductTypeId = new System.Windows.Forms.Label();
+            this.txtEditProductType = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabConTrol.SuspendLayout();
             this.tbpThietBi.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProduct)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlTimThietBi.SuspendLayout();
+            this.tbpLoaiThietBi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabConTrol
@@ -127,6 +152,98 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(919, 359);
             this.panel2.TabIndex = 2;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(656, 16);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(22, 13);
+            this.lblId.TabIndex = 18;
+            this.lblId.Text = "xxx";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(597, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Thiết bị Id: ";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(674, 148);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 15;
+            this.btnEdit.Text = "Cập Nhật";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(525, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Giá";
+            // 
+            // txtEditProductPrice
+            // 
+            this.txtEditProductPrice.Location = new System.Drawing.Point(597, 117);
+            this.txtEditProductPrice.Name = "txtEditProductPrice";
+            this.txtEditProductPrice.Size = new System.Drawing.Size(297, 20);
+            this.txtEditProductPrice.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(524, 120);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Số Lượng";
+            // 
+            // txtEditProductQty
+            // 
+            this.txtEditProductQty.Location = new System.Drawing.Point(597, 91);
+            this.txtEditProductQty.Name = "txtEditProductQty";
+            this.txtEditProductQty.Size = new System.Drawing.Size(297, 20);
+            this.txtEditProductQty.TabIndex = 15;
+            // 
+            // cbxEditProductType
+            // 
+            this.cbxEditProductType.FormattingEnabled = true;
+            this.cbxEditProductType.Location = new System.Drawing.Point(597, 66);
+            this.cbxEditProductType.Name = "cbxEditProductType";
+            this.cbxEditProductType.Size = new System.Drawing.Size(227, 21);
+            this.cbxEditProductType.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(524, 45);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Tên Thiết Bị";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(523, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Loại Thiết Bị";
+            // 
+            // txtEditProduct
+            // 
+            this.txtEditProduct.Location = new System.Drawing.Point(596, 42);
+            this.txtEditProduct.Name = "txtEditProduct";
+            this.txtEditProduct.Size = new System.Drawing.Size(297, 20);
+            this.txtEditProduct.TabIndex = 15;
             // 
             // label9
             // 
@@ -220,6 +337,22 @@
             this.btnAddProduct.TabIndex = 9;
             this.btnAddProduct.Text = "Thêm";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(416, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Giá";
+            // 
+            // txtPriceAdd
+            // 
+            this.txtPriceAdd.Location = new System.Drawing.Point(488, 75);
+            this.txtPriceAdd.Name = "txtPriceAdd";
+            this.txtPriceAdd.Size = new System.Drawing.Size(297, 20);
+            this.txtPriceAdd.TabIndex = 13;
             // 
             // label7
             // 
@@ -347,6 +480,13 @@
             // 
             // tbpLoaiThietBi
             // 
+            this.tbpLoaiThietBi.Controls.Add(this.panel6);
+            this.tbpLoaiThietBi.Controls.Add(this.grvProductType);
+            this.tbpLoaiThietBi.Controls.Add(this.panel4);
+            this.tbpLoaiThietBi.Controls.Add(this.btnSearchProductType);
+            this.tbpLoaiThietBi.Controls.Add(this.textBox1);
+            this.tbpLoaiThietBi.Controls.Add(this.label15);
+            this.tbpLoaiThietBi.Controls.Add(this.panel3);
             this.tbpLoaiThietBi.Location = new System.Drawing.Point(4, 22);
             this.tbpLoaiThietBi.Name = "tbpLoaiThietBi";
             this.tbpLoaiThietBi.Padding = new System.Windows.Forms.Padding(3);
@@ -396,121 +536,196 @@
             this.tabPage4.Text = "Giao Hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // grvProductType
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(524, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Tên Thiết Bị";
+            this.grvProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvProductType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtProductTypeID,
+            this.txtLTBName,
+            this.btnEditProductType});
+            this.grvProductType.Location = new System.Drawing.Point(3, 117);
+            this.grvProductType.Name = "grvProductType";
+            this.grvProductType.Size = new System.Drawing.Size(410, 455);
+            this.grvProductType.TabIndex = 0;
             // 
-            // txtEditProduct
+            // label15
             // 
-            this.txtEditProduct.Location = new System.Drawing.Point(596, 42);
-            this.txtEditProduct.Name = "txtEditProduct";
-            this.txtEditProduct.Size = new System.Drawing.Size(297, 20);
-            this.txtEditProduct.TabIndex = 15;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tìm theo tên";
             // 
-            // cbxEditProductType
+            // textBox1
             // 
-            this.cbxEditProductType.FormattingEnabled = true;
-            this.cbxEditProductType.Location = new System.Drawing.Point(597, 66);
-            this.cbxEditProductType.Name = "cbxEditProductType";
-            this.cbxEditProductType.Size = new System.Drawing.Size(227, 21);
-            this.cbxEditProductType.TabIndex = 16;
+            this.textBox1.Location = new System.Drawing.Point(80, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(243, 20);
+            this.textBox1.TabIndex = 2;
             // 
-            // label11
+            // btnSearchProductType
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(523, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Loại Thiết Bị";
+            this.btnSearchProductType.Location = new System.Drawing.Point(329, 6);
+            this.btnSearchProductType.Name = "btnSearchProductType";
+            this.btnSearchProductType.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchProductType.TabIndex = 3;
+            this.btnSearchProductType.Text = "Tìm";
+            this.btnSearchProductType.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // panel3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(524, 120);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 13);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Số Lượng";
+            this.panel3.Location = new System.Drawing.Point(4, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(409, 23);
+            this.panel3.TabIndex = 4;
             // 
-            // txtEditProductQty
+            // panel4
             // 
-            this.txtEditProductQty.Location = new System.Drawing.Point(597, 91);
-            this.txtEditProductQty.Name = "txtEditProductQty";
-            this.txtEditProductQty.Size = new System.Drawing.Size(297, 20);
-            this.txtEditProductQty.TabIndex = 15;
+            this.panel4.Controls.Add(this.btnAddProductType);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Location = new System.Drawing.Point(4, 36);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(409, 75);
+            this.panel4.TabIndex = 5;
             // 
-            // txtPriceAdd
+            // panel5
             // 
-            this.txtPriceAdd.Location = new System.Drawing.Point(488, 75);
-            this.txtPriceAdd.Name = "txtPriceAdd";
-            this.txtPriceAdd.Size = new System.Drawing.Size(297, 20);
-            this.txtPriceAdd.TabIndex = 13;
+            this.panel5.Location = new System.Drawing.Point(0, 113);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(400, 107);
+            this.panel5.TabIndex = 6;
             // 
-            // label8
+            // textBox2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(416, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Giá";
+            this.textBox2.Location = new System.Drawing.Point(76, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(243, 20);
+            this.textBox2.TabIndex = 7;
             // 
-            // label13
+            // label16
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(525, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Giá";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label16.Location = new System.Drawing.Point(5, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(307, 29);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Thêm Loại Sản Phẩm Mới";
             // 
-            // txtEditProductPrice
+            // label17
             // 
-            this.txtEditProductPrice.Location = new System.Drawing.Point(597, 117);
-            this.txtEditProductPrice.Name = "txtEditProductPrice";
-            this.txtEditProductPrice.Size = new System.Drawing.Size(297, 20);
-            this.txtEditProductPrice.TabIndex = 15;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(5, 48);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Tìm theo tên";
             // 
-            // btnEdit
+            // btnAddProductType
             // 
-            this.btnEdit.Location = new System.Drawing.Point(674, 148);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 15;
-            this.btnEdit.Text = "Cập Nhật";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnAddProductType.Location = new System.Drawing.Point(325, 44);
+            this.btnAddProductType.Name = "btnAddProductType";
+            this.btnAddProductType.Size = new System.Drawing.Size(75, 23);
+            this.btnAddProductType.TabIndex = 6;
+            this.btnAddProductType.Text = "Thêm";
+            this.btnAddProductType.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // txtProductTypeID
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(597, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 13);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Thiết bị Id: ";
+            this.txtProductTypeID.HeaderText = "Id";
+            this.txtProductTypeID.Name = "txtProductTypeID";
             // 
-            // lblId
+            // txtLTBName
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(656, 16);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(22, 13);
-            this.lblId.TabIndex = 18;
-            this.lblId.Text = "xxx";
+            this.txtLTBName.HeaderText = "Tên Loại Thiết Bị";
+            this.txtLTBName.Name = "txtLTBName";
+            this.txtLTBName.Width = 210;
             // 
-            // Form1
+            // btnEditProductType
+            // 
+            this.btnEditProductType.HeaderText = "";
+            this.btnEditProductType.Name = "btnEditProductType";
+            this.btnEditProductType.Text = "Sửa";
+            this.btnEditProductType.UseColumnTextForButtonValue = true;
+            this.btnEditProductType.Width = 55;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.txtEditProductType);
+            this.panel6.Controls.Add(this.lblProductTypeId);
+            this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label18);
+            this.panel6.Location = new System.Drawing.Point(420, 117);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(509, 455);
+            this.panel6.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label18.Location = new System.Drawing.Point(8, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 29);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Sửa";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(72, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Id:";
+            // 
+            // lblProductTypeId
+            // 
+            this.lblProductTypeId.AutoSize = true;
+            this.lblProductTypeId.Location = new System.Drawing.Point(92, 14);
+            this.lblProductTypeId.Name = "lblProductTypeId";
+            this.lblProductTypeId.Size = new System.Drawing.Size(22, 13);
+            this.lblProductTypeId.TabIndex = 11;
+            this.lblProductTypeId.Text = "xxx";
+            // 
+            // txtEditProductType
+            // 
+            this.txtEditProductType.Location = new System.Drawing.Point(107, 60);
+            this.txtEditProductType.Name = "txtEditProductType";
+            this.txtEditProductType.Size = new System.Drawing.Size(359, 20);
+            this.txtEditProductType.TabIndex = 12;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 63);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 13);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Tên Loại Thiết Bị";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(218, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Sửa";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // formQuanLyBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 629);
             this.Controls.Add(this.tabConTrol);
-            this.Name = "Form1";
+            this.Name = "formQuanLyBanHang";
             this.Text = "Form1";
             this.tabConTrol.ResumeLayout(false);
             this.tbpThietBi.ResumeLayout(false);
@@ -521,6 +736,13 @@
             this.panel1.PerformLayout();
             this.pnlTimThietBi.ResumeLayout(false);
             this.pnlTimThietBi.PerformLayout();
+            this.tbpLoaiThietBi.ResumeLayout(false);
+            this.tbpLoaiThietBi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -572,6 +794,27 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnSearchProductType;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridView grvProductType;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnAddProductType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtProductTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtLTBName;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditProductType;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtEditProductType;
+        private System.Windows.Forms.Label lblProductTypeId;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
     }
 }
 

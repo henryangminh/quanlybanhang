@@ -18,9 +18,37 @@ namespace quanlybanhang_winform
         {
             InitializeComponent();
             getProduct();
+            getProductType();
             grvProduct.CellClick += new DataGridViewCellEventHandler(editProducts);
             btnEdit.Click += new EventHandler(updateProduct);
             btnAddProduct.Click += new EventHandler(addProduct);
+
+            grvProductType.CellClick += new DataGridViewCellEventHandler(editProductTypes);
+        }
+
+        private void editProductTypes(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dataGridView = sender as DataGridView;
+            if (dataGridView != null)
+            {
+                int rowIndex = e.RowIndex;
+                lblProductTypeId.Text = grvProductType.Rows[rowIndex].Cells[0].Value.ToString();
+                txtEditProductType.Text = grvProductType.Rows[rowIndex].Cells[1].Value.ToString();
+            }
+        }
+
+        public void getProductType()
+        {
+            LoaiThietBiBUS loaiThietBiBUS = new LoaiThietBiBUS();
+            DataTable dtLTB = new DataTable();
+            dtLTB = loaiThietBiBUS.GetAll();
+
+            foreach (DataRow row in dtLTB.Rows)
+            {
+                int n = grvProductType.Rows.Add();
+                grvProductType.Rows[n].Cells[0].Value = row[0].ToString();
+                grvProductType.Rows[n].Cells[1].Value = row[1].ToString();
+            }
         }
 
         private void addProduct(object sender, EventArgs e)
@@ -29,6 +57,8 @@ namespace quanlybanhang_winform
             int LTBAdd = cbxAddProduct.SelectedIndex + 1;
             int QtyAdd = Convert.ToInt32(txtQtyAdd.Text.ToString());
             int PriceAdd = Convert.ToInt32(txtPriceAdd.Text.ToString());
+
+            //gọi hàm thêm sản phẩm
         }
 
         private void updateProduct(object sender, EventArgs e)

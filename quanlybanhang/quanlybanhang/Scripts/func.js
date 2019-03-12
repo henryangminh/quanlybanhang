@@ -1,6 +1,7 @@
-﻿function PageLoad() {
+﻿var listSelected = [];
+function PageLoad() {
     var tempListSelected = [];
-    var listSelected = [];
+    
     var TotalPrice = 0;
     registerEvent(tempListSelected, listSelected, TotalPrice);
 }
@@ -21,14 +22,16 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
             tempListSelected.splice(index, 1);
         }
     })
-
+    $("[type='number']").keypress(function (evt) {
+        evt.preventDefault();
+    });
     $('body').on('click', '#btnSelect', function () {
         var render = '';
         $.each(tempListSelected, function (i, item) {
             listSelected.push(item);
             render += '<tr value="'+ item.TBId +'">' +
                 '<td>' + item.ProductName + '</td>' +
-                '<td><input type="number" class="form-control" value="1" min="1" id="txtQty"/></td>' +
+                '<td><input type="number" class="form-control" value="1" min="1" max="'+item.Qty+'" id="txtQty" /></td>' +
                 '<td value="' + item.Price + '">' + item.Price + '</td>' +
                 '<td id="btnDelRow"><a><i class="fa fa-trash"></i></a></td>' +
                 '</tr>';
@@ -129,10 +132,10 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
     })
     */
 
-    $('body').on('click', '#MainContent_btnLap', function () {
-        TotalPrice = 0;
-        listSelected = [];
-    })
+    //$('body').on('click', '#MainContent_btnLap', function () {
+    //    TotalPrice = 0;
+    //    listSelected = [];
+    //})
 }
 function LoadKH() {
     var Contact = $('#MainContent_txtPhoneNumber').val();
@@ -143,7 +146,7 @@ function LoadKH() {
         dataType: 'json',
         data:
         "{ contact: '"+Contact+"' }",
-        error: function (XMLHttpRequest, textStatus, errorThrown) { 
+        error: function (e) { 
             
         },
         success: function (result) {
@@ -155,6 +158,8 @@ function LoadKH() {
                 $('#MainContent_txtCustomerID').val(result.d.Id);
                 $('#MainContent_txtAddress').val(result.d.Address);
                 $('#MainContent_txtCustomerName').val(result.d.Name);
+                $('#MainContent_txtKHContact').val(result.d.Contact);
+                
             }
         }
     });
@@ -163,14 +168,59 @@ function LoadKH() {
 function SaveHoaDon(TotalPrice) {
     //var hdId = 0;
     var khId = parseInt($('#MainContent_txtCustomerID').val());
-  //  var dateCreate = new Date();
+
     var totalPrice = parseInt($('#txtTotalPrice').val());
+    var listCTHD = [];
+    var _customname;
+    if ($('#MainContent_txtTenKhachGiao').val() == "") {
+        _customname = $('#MainContent_txtCustomerName').val();
+    }
+    else {
+        _customname = $('#MainContent_txtTenKhachGiao').val();
+    }
+    var _address;
+    if ($('#MainContent_txtDiaChi').val() == "") {
+        _address = $('#MainContent_txtAddress').val();
+    }
+    else {
+        _address = $('#MainContent_txtDiaChi').val();
+    }
+    var _contact;
+    if ($('#MainContent_txtContact').val() == "") {
+        _contact = $('#MainContent_txtKHContact').val();
+    }
+    else {
+        _contact = $('#MainContent_txtContact').val();
+    }
+    var _gh = {
+        GHId: 0,
+        HDId: 0,
+        TotalPrice: totalPrice,
+        CustomerName: _customname,
+        DeliveryContact: _contact,
+        DeliveryAddress: _address,
+
+    };
+ 
+    $.each(listSelected, function (i, item) {
+        var _cthdID = parseInt(item.TBId);
+        var _cthdQty = parseInt(item.SelectedQty);
+        var _cthdPrice = parseInt(item.SelectedQty) * parseInt(item.Price);
+        var _cthd = {
+            HDId:0,
+            TBId: _cthdID,
+            Qty: _cthdQty,
+            SubTotal:_cthdPrice,
+        };
+        listCTHD.push(_cthd);
+    })
+
     $.ajax({
         type: "POST",
         url: "Default.aspx/SaveInvoice",
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        data: JSON.stringify({ 'KhId':khId,'total':totalPrice,}),
+        data: JSON.stringify({ 'KhId': khId, 'total': totalPrice, 'listCTHD': listCTHD, 'GH': _gh}),
        
         //{
         //    //mahd: hdid,
@@ -191,5 +241,33 @@ function SaveHoaDon(TotalPrice) {
         }
     });
 }
+
+function LoadTypeData() {
+    var typeId = $('#MainContent_slcType').val();
+    $.ajax({
+        type: "POST",
+        url: "Default.aspx/GetByType",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        data:
+            "{ Id: '" + typeId + "' }",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+        },
+        success: function (result) {
+            if (result.d == null) {
+                alert("Sai số điện thoại hoặc số điện thoại chưa có");
+            }
+            else {
+                console.log(result)
+                $('#MainContent_txtCustomerID').val(result.d.Id);
+                $('#MainContent_txtAddress').val(result.d.Address);
+                $('#MainContent_txtCustomerName').val(result.d.Name);
+            }
+        }
+    });
+
+}
+
 
 PageLoad();

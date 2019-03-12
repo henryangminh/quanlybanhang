@@ -15,51 +15,50 @@ namespace quanlybanhang
 {
     public partial class _Default : Page
     {
-        ThietBiBUS tbBus = new ThietBiBUS();
+        static ThietBiBUS tbBus = new ThietBiBUS();
         LoaiThietBiBUS ltbBus = new LoaiThietBiBUS();
         static KhachHangBUS khBus = new KhachHangBUS();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                DataTable tb = tbBus.GetAll();
-                DataTable ltb = ltbBus.GetAll();
-                //DataTable kh = khBus.GetByContact();
-                List<LoaiThietBiDTO> LoaiThietBiDTOs = new List<LoaiThietBiDTO>();
+
+            DataTable tb = tbBus.GetAll();
+            DataTable ltb = ltbBus.GetAll();
+            //DataTable kh = khBus.GetByContact();
+            //slcType.Items.Clear();
 
 
-                foreach (DataRow ltb_row in ltb.Rows)
+            foreach (DataRow ltb_row in ltb.Rows)
+            {
+                string text = ltb_row.ItemArray[1].ToString();
+                string val = ltb_row.ItemArray[0].ToString();
+                slcType.Items.Add(new ListItem(text, val));
+            }
+            foreach (DataRow row in tb.Rows)
+            {
+                HtmlTableRow row2 = new HtmlTableRow();
+                foreach (var item in row.ItemArray)
                 {
 
-                    LoaiThietBiDTO _LoaiThietBiDTO = new LoaiThietBiDTO(int.Parse(ltb_row.ItemArray[0].ToString()), ltb_row.ItemArray[1].ToString());
-                    LoaiThietBiDTOs.Add(_LoaiThietBiDTO);
+                    var cell = new HtmlTableCell();
 
-                }
-                foreach (DataRow row in tb.Rows)
-                {
-                    HtmlTableRow row2 = new HtmlTableRow();
-                    foreach (var item in row.ItemArray)
+                    //var loai = this.
+                    cell.InnerText = item.ToString();
+                    if (row2.Cells.Count == 0)
                     {
-
-                        var cell = new HtmlTableCell();
-
-                        //var loai = this.
-                        cell.InnerText = item.ToString();
-                        if (row2.Cells.Count == 0)
-                        {
-                            cell.InnerHtml = "<input type='checkbox' runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'/>";
-                        }
-                        if (row2.Cells.Count == 2)
-                        {
-                            LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
-                            cell.InnerText = loaiThietBiDTO.TypeName;
-                        }
-
-                        row2.Cells.Add(cell);
-
+                        cell.InnerHtml = "<input type='checkbox' runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'/>";
                     }
-                    tbl_ThietBi.Controls.Add(row2);
+                    if (row2.Cells.Count == 2)
+                    {
+                        LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
+                        cell.InnerText = loaiThietBiDTO.TypeName;
+                    }
+
+                    row2.Cells.Add(cell);
+
                 }
+                tbl_ThietBi.Controls.Add(row2);
+            }
             //MaintainScrollPositionOnPostBack = false;
             //findKH.Attributes.Add("AutoPostback", "false");
             //btnFindKH.Attributes.Add("onclick", "return false");
@@ -70,24 +69,31 @@ namespace quanlybanhang
         //btnLap.Attributes.Add("OnClick", "SaveInvoice");
 
         [WebMethod]
-        public static void SaveInvoice(int KhId,int total)
-            {
-                int Mahd = 0;
-                DateTime DateCreate = DateTime.Now;
-                HoaDonBUS hd = new HoaDonBUS();
-                HoaDonDTO entity = new HoaDonDTO(Mahd, KhId, DateCreate, total);
-                hd.Add(entity);
-            }
-        
-            //public void LoadKH(object sender, EventArgs e)
-            //{
-            //    string contact = txtPhoneNumber.Value;
-            //    DataTable kh = khBus.GetByContact(contact);
-            //    txtCustomerID.Value = kh.Rows[0].ItemArray[0].ToString();
-            //    txtAddress.Value = kh.Rows[0].ItemArray[3].ToString();
-            //    txtCustomerName.Value = kh.Rows[0].ItemArray[1].ToString();
+        public static void SaveInvoice(int KhId, int total, List<CTHDDTO> listCTHD, GiaoHangDTO GH)
+        {
+            CTHDBUS cthd = new CTHDBUS();
+            int Mahd = 0;
+            DateTime DateCreate = DateTime.Now;
+            HoaDonBUS hd = new HoaDonBUS();
 
-            //}
+            HoaDonDTO entity = new HoaDonDTO(Mahd, KhId, DateCreate, total);
+
+            CTHDBUS cTHDBUS = new CTHDBUS();
+            GiaoHangBUS giaoHangBUS = new GiaoHangBUS();
+            hd.Add(entity);
+            giaoHangBUS.Add(GH);
+            cTHDBUS.Add(listCTHD);
+         
+        }
+        //public void LoadKH(object sender, EventArgs e)
+        //{
+        //    string contact = txtPhoneNumber.Value;
+        //    DataTable kh = khBus.GetByContact(contact);
+        //    txtCustomerID.Value = kh.Rows[0].ItemArray[0].ToString();
+        //    txtAddress.Value = kh.Rows[0].ItemArray[3].ToString();
+        //    txtCustomerName.Value = kh.Rows[0].ItemArray[1].ToString();
+
+        //}
         [WebMethod]
         public static KhachHangDTO GetKH(string contact)
         {
@@ -101,6 +107,27 @@ namespace quanlybanhang
             else
                 return null;
         }
+
+        [WebMethod]
+        public static List<ThietBiDTO> GetByType(int Id)
+        {
+            List<ThietBiDTO> rs = new List<ThietBiDTO>();
+            DataTable tb = tbBus.GetByType(Id);
+            foreach (DataRow row in tb.Rows)
+            {
+
+                int TBId = int.Parse(row.ItemArray[0].ToString());
+                string TBName = row.ItemArray[1].ToString();
+                int LTBId = int.Parse(row.ItemArray[2].ToString());
+                int Price = int.Parse(row.ItemArray[3].ToString());
+                int Qty = int.Parse(row.ItemArray[4].ToString());
+                ThietBiDTO temp = new ThietBiDTO(TBId, TBName, LTBId, Price, Qty);
+                rs.Add(temp);
+                
+            }
+            return rs;
+        }
+
 
         [WebMethod]
         public static void SaveCTHD()

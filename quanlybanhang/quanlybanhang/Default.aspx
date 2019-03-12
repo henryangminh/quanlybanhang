@@ -10,9 +10,8 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="slcType">Tìm theo loại</label>
-                <select id="slcType" class="form-control">
+                <select id="slcType" class="form-control" onchange="LoadTypeData()" runat="server">
                     <option selected>Choose...</option>
-                    <option>...</option>
                 </select>
             </div>
         </div>        
@@ -74,6 +73,7 @@
                     <div class="modal-body">
                         <div class="form-group row" style="display: flex;justify-content: center;align-items: center;">
                             <input type="hidden" id="txtMaKhachHang" value="0" runat="server" />
+                            <input type="hidden" id="txtKHContact" value="0" RUNAT="server"/>
                             <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại: </label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server">

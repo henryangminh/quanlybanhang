@@ -43,7 +43,28 @@ namespace DAO
             }
         }
 
-        public ThietBiDTO GetById(int id)
+        public DataTable GetByType(int typeId)
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from ThietBi where LTBId="+typeId, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetById(int id)
+        {
+            throw new NotImplementedException();
+
+        }
+
+        ThietBiDTO IDal<ThietBiDTO>.GetById(int id)
         {
             throw new NotImplementedException();
         }

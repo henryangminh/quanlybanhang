@@ -15,5 +15,9 @@ namespace BUS
         {
             return a.GetAll();
         }
+        public DataTable GetByType(int typeId)
+        {
+            return a.GetByType(typeId);
+        }
     }
 }

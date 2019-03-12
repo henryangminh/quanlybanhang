@@ -15,7 +15,18 @@ namespace DAO
     {
         public void Add(ThietBiDTO entity)
         {
-            throw new NotImplementedException();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from ThietBi", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DataRow r = dt.NewRow();
+            r[0] = entity.TBId;
+            r[1] = entity.TBName;
+            r[2] = entity.LTBId;
+            r[3] = entity.Price;
+            r[4] = entity.Qty;
+            dt.Rows.Add(r);
+            SqlCommandBuilder cm = new SqlCommandBuilder(da);
+            da.Update(dt);
         }
 
         public void Delete(int id)
@@ -25,7 +36,19 @@ namespace DAO
 
         public void Edit(ThietBiDTO entity)
         {
-            throw new NotImplementedException();
+            using (SqlCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "UPDATE ThietBi SET TBName = @tbName, LTBId = @ltbId, Price = @price, Qty = @qty WHERE TBId = @tbId";
+                command.Parameters.AddWithValue("@tbName", entity.TBName);
+                command.Parameters.AddWithValue("@ltbId", entity.LTBId);
+                command.Parameters.AddWithValue("@price", entity.Price);
+                command.Parameters.AddWithValue("@qty", entity.Qty);
+                command.Parameters.AddWithValue("@tbId", entity.TBId);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         public DataTable GetAll()

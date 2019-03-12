@@ -28,6 +28,10 @@ namespace quanlybanhang_winform
             btnAddProduct.Click += new EventHandler(addProduct);
             grvInvoice.CellClick += new DataGridViewCellEventHandler(getInvoiceDetails);
             grvProductType.CellClick += new DataGridViewCellEventHandler(editProductTypes);
+
+            List<string> tbType = getLoaiThietBi();
+            tbType.Insert(0, "");
+            cbxAddProduct.DataSource = tbType;
         }
 
         private void getInvoiceDetails(object sender, DataGridViewCellEventArgs e)
@@ -92,12 +96,23 @@ namespace quanlybanhang_winform
 
         private void addProduct(object sender, EventArgs e)
         {
+            int TBId = 0;
             string TBName = txtThietBiName.Text.ToString();
-            int LTBAdd = cbxAddProduct.SelectedIndex + 1;
+            int LTBAdd = cbxAddProduct.SelectedIndex;
             int QtyAdd = Convert.ToInt32(txtQtyAdd.Text.ToString());
             int PriceAdd = Convert.ToInt32(txtPriceAdd.Text.ToString());
 
-            //gọi hàm thêm sản phẩm
+            ThietBiDTO thietBiDTO = new ThietBiDTO(TBId, TBName, LTBAdd, PriceAdd, QtyAdd);
+            ThietBiBUS thietBiBUS = new ThietBiBUS();
+            thietBiBUS.Add(thietBiDTO);
+
+            grvProduct.Rows.Clear();
+            getProduct();
+
+            txtThietBiName.Text = "";
+            cbxAddProduct.SelectedIndex = 0;
+            txtQtyAdd.Text = "";
+            txtPriceAdd.Text = "";
         }
 
         private void updateProduct(object sender, EventArgs e)
@@ -108,7 +123,19 @@ namespace quanlybanhang_winform
             int EditProductQty = Convert.ToInt32(txtEditProductQty.Text.ToString());
             int EditProductPrice = Convert.ToInt32(txtEditProductPrice.Text.ToString());
 
-            //gọi hàm sửa sản phẩm
+            ThietBiDTO thietBiDTO = new ThietBiDTO(idEditProduct, NameEditProduct, TypeProductEdit, EditProductPrice, EditProductQty);
+            ThietBiBUS thietBiBUS = new ThietBiBUS();
+            thietBiBUS.Edit(thietBiDTO);
+
+            grvProduct.Rows.Clear();
+            getProduct();
+
+            lblId.Text = "";
+            txtEditProduct.Text = "";
+            cbxEditProductType.DataSource = null;
+            cbxEditProductType.Items.Clear();
+            txtEditProductQty.Text = "";
+            txtEditProductPrice.Text = "";
         }
 
         public void editProducts(object sender, DataGridViewCellEventArgs e)
@@ -125,8 +152,8 @@ namespace quanlybanhang_winform
                     txtEditProduct.Text = grvProduct.Rows[rowIndex].Cells[1].Value.ToString();
                     cbxEditProductType.DataSource = listLoaiThietBi;
                     cbxEditProductType.Text = grvProduct.Rows[rowIndex].Cells[2].Value.ToString();
-                    txtEditProductQty.Text = grvProduct.Rows[rowIndex].Cells[3].Value.ToString();
-                    txtEditProductPrice.Text = grvProduct.Rows[rowIndex].Cells[4].Value.ToString();
+                    txtEditProductPrice.Text = grvProduct.Rows[rowIndex].Cells[3].Value.ToString();
+                    txtEditProductQty.Text = grvProduct.Rows[rowIndex].Cells[4].Value.ToString();
                 }
             }
         }

@@ -227,7 +227,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(525, 94);
+            this.label13.Location = new System.Drawing.Point(526, 96);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 13);
             this.label13.TabIndex = 16;
@@ -235,7 +235,7 @@
             // 
             // txtEditProductPrice
             // 
-            this.txtEditProductPrice.Location = new System.Drawing.Point(597, 117);
+            this.txtEditProductPrice.Location = new System.Drawing.Point(597, 92);
             this.txtEditProductPrice.Name = "txtEditProductPrice";
             this.txtEditProductPrice.Size = new System.Drawing.Size(297, 20);
             this.txtEditProductPrice.TabIndex = 15;
@@ -243,7 +243,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(524, 120);
+            this.label12.Location = new System.Drawing.Point(524, 126);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 16;
@@ -251,7 +251,7 @@
             // 
             // txtEditProductQty
             // 
-            this.txtEditProductQty.Location = new System.Drawing.Point(597, 91);
+            this.txtEditProductQty.Location = new System.Drawing.Point(596, 121);
             this.txtEditProductQty.Name = "txtEditProductQty";
             this.txtEditProductQty.Size = new System.Drawing.Size(297, 20);
             this.txtEditProductQty.TabIndex = 15;
@@ -276,7 +276,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(523, 71);
+            this.label11.Location = new System.Drawing.Point(524, 71);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 15;

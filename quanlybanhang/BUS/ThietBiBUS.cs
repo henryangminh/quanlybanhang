@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using DTO.Entities;
 
 namespace BUS
 {
@@ -18,6 +19,14 @@ namespace BUS
         public DataTable GetByType(int typeId)
         {
             return a.GetByType(typeId);
+        }
+        public void Add(ThietBiDTO thietBiBUS)
+        {
+            a.Add(thietBiBUS);
+        }
+        public void Edit(ThietBiDTO thietBiDTO)
+        {
+            a.Edit(thietBiDTO);
         }
     }
 }

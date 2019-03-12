@@ -30,7 +30,7 @@ namespace BUS
 
         public DataTable GetAll()
         {
-            throw new NotImplementedException();
+            return hd.GetAll();
         }
 
         public HoaDonDTO GetById(int id)

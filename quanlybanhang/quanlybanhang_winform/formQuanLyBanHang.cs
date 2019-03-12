@@ -19,11 +19,47 @@ namespace quanlybanhang_winform
             InitializeComponent();
             getProduct();
             getProductType();
+            getInvoice();
+            getCustomer();
+            getDelivery();
+
             grvProduct.CellClick += new DataGridViewCellEventHandler(editProducts);
             btnEdit.Click += new EventHandler(updateProduct);
             btnAddProduct.Click += new EventHandler(addProduct);
-
+            grvInvoice.CellClick += new DataGridViewCellEventHandler(getInvoiceDetails);
             grvProductType.CellClick += new DataGridViewCellEventHandler(editProductTypes);
+        }
+
+        private void getInvoiceDetails(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dataGridView = sender as DataGridView;
+            if (dataGridView != null)
+            {
+                int rowIndex = e.RowIndex;
+                if (rowIndex >= 0)
+                {
+                    string invoiceId = grvInvoice.Rows[rowIndex].Cells[0].Value.ToString();
+                    lblInvoiceDetailsId.Text = invoiceId;
+
+                    grvInvoiceDetails.Rows.Clear();
+
+                    CTHDBUS cTHDBUS = new CTHDBUS();
+                    DataTable dataTableInvoiceDetails = cTHDBUS.GetAllInvoiceDetailsByInvoiceId(Convert.ToInt32(invoiceId));
+
+                    foreach (DataRow row in dataTableInvoiceDetails.Rows)
+                    {
+                        int n = grvInvoiceDetails.Rows.Add();
+                        grvInvoiceDetails.Rows[n].Cells[0].Value = row[6].ToString();
+                        grvInvoiceDetails.Rows[n].Cells[1].Value = row[10].ToString();
+                        grvInvoiceDetails.Rows[n].Cells[2].Value = row[7].ToString();
+                        grvInvoiceDetails.Rows[n].Cells[2].Value = row[8].ToString();
+                    }
+
+                    lblInvoiceTotalPrice.Text = grvInvoice.Rows[rowIndex].Cells[4].Value.ToString();
+                    lblInvoiceSaleOff.Text = (Convert.ToDouble(grvInvoice.Rows[rowIndex].Cells[3].Value.ToString())*100).ToString() + "%";
+                    lblInvoiceDetailsPayment.Text = ((1.0 - Convert.ToDouble(grvInvoice.Rows[rowIndex].Cells[3].Value.ToString())) * Convert.ToDouble(grvInvoice.Rows[rowIndex].Cells[4].Value.ToString())).ToString();
+                }
+            }
         }
 
         private void editProductTypes(object sender, DataGridViewCellEventArgs e)
@@ -32,8 +68,11 @@ namespace quanlybanhang_winform
             if (dataGridView != null)
             {
                 int rowIndex = e.RowIndex;
-                lblProductTypeId.Text = grvProductType.Rows[rowIndex].Cells[0].Value.ToString();
-                txtEditProductType.Text = grvProductType.Rows[rowIndex].Cells[1].Value.ToString();
+                if (rowIndex >= 0)
+                {
+                    lblProductTypeId.Text = grvProductType.Rows[rowIndex].Cells[0].Value.ToString();
+                    txtEditProductType.Text = grvProductType.Rows[rowIndex].Cells[1].Value.ToString();
+                }
             }
         }
 
@@ -80,12 +119,15 @@ namespace quanlybanhang_winform
                 List<string> listLoaiThietBi = getLoaiThietBi();
                 //DataGridViewButtonCell btnEditProduct = dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
                 int rowIndex = e.RowIndex;
-                lblId.Text = grvProduct.Rows[rowIndex].Cells[0].Value.ToString();
-                txtEditProduct.Text = grvProduct.Rows[rowIndex].Cells[1].Value.ToString();
-                cbxEditProductType.DataSource = listLoaiThietBi;
-                cbxEditProductType.Text = grvProduct.Rows[rowIndex].Cells[2].Value.ToString();
-                txtEditProductQty.Text = grvProduct.Rows[rowIndex].Cells[3].Value.ToString();
-                txtEditProductPrice.Text = grvProduct.Rows[rowIndex].Cells[4].Value.ToString();
+                if (rowIndex >= 0)
+                {
+                    lblId.Text = grvProduct.Rows[rowIndex].Cells[0].Value.ToString();
+                    txtEditProduct.Text = grvProduct.Rows[rowIndex].Cells[1].Value.ToString();
+                    cbxEditProductType.DataSource = listLoaiThietBi;
+                    cbxEditProductType.Text = grvProduct.Rows[rowIndex].Cells[2].Value.ToString();
+                    txtEditProductQty.Text = grvProduct.Rows[rowIndex].Cells[3].Value.ToString();
+                    txtEditProductPrice.Text = grvProduct.Rows[rowIndex].Cells[4].Value.ToString();
+                }
             }
         }
 
@@ -126,7 +168,54 @@ namespace quanlybanhang_winform
 
         public void getInvoice()
         {
-            
+            HoaDonBUS hoaDonBUS = new HoaDonBUS();
+            DataTable dtHD = new DataTable();
+            dtHD = hoaDonBUS.GetAll();
+
+            foreach (DataRow row in dtHD.Rows)
+            {
+                int n = grvInvoice.Rows.Add();
+                grvInvoice.Rows[n].Cells[0].Value = row[0].ToString();
+                grvInvoice.Rows[n].Cells[1].Value = row[1].ToString();
+                grvInvoice.Rows[n].Cells[2].Value = row[2].ToString();
+                grvInvoice.Rows[n].Cells[3].Value = row[3].ToString();
+                grvInvoice.Rows[n].Cells[4].Value = row[4].ToString();
+            }
+        }
+
+        public void getCustomer()
+        {
+            KhachHangBUS hoaDonBUS = new KhachHangBUS();
+            DataTable dtKH = new DataTable();
+            dtKH = hoaDonBUS.GetAll();
+
+            foreach (DataRow row in dtKH.Rows)
+            {
+                int n = grvCustomer.Rows.Add();
+                grvCustomer.Rows[n].Cells[0].Value = row[0].ToString();
+                grvCustomer.Rows[n].Cells[1].Value = row[1].ToString();
+                grvCustomer.Rows[n].Cells[2].Value = row[2].ToString();
+                grvCustomer.Rows[n].Cells[3].Value = row[3].ToString();
+            }
+        }
+
+        public void getDelivery ()
+        {
+            GiaoHangBUS giaoHangBUS = new GiaoHangBUS();
+            DataTable dtGH = new DataTable();
+            dtGH = giaoHangBUS.GetAll();
+
+            foreach (DataRow row in dtGH.Rows)
+            {
+                int n = grvDelivery.Rows.Add();
+                grvDelivery.Rows[n].Cells[0].Value = row[0].ToString();
+                grvDelivery.Rows[n].Cells[1].Value = row[1].ToString();
+                //grvCustomer.Rows[n].Cells[2].Value = row[2].ToString();
+                grvDelivery.Rows[n].Cells[2].Value = row[3].ToString();
+                grvDelivery.Rows[n].Cells[3].Value = row[4].ToString();
+                grvDelivery.Rows[n].Cells[4].Value = row[5].ToString();
+                grvDelivery.Rows[n].Cells[5].Value = row[6].ToString();
+            }
         }
     }
 }

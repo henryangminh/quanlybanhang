@@ -92,27 +92,43 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblInvoiceTotalPrice = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.lblInvoiceDetailsId = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.grvInvoiceDetails = new System.Windows.Forms.DataGridView();
+            this.txtInvoiceDetailsProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblInvoiceDetailsPayment = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.lblInvoiceTotalPrice = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.grvInvoice = new System.Windows.Forms.DataGridView();
             this.txtInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceKhachHangId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceSaleOff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInvoiceDetails = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtInvoiceDetailsProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblInvoiceDetailsId = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lblInvoiceSaleOff = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.grvCustomer = new System.Windows.Forms.DataGridView();
+            this.txtCustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCustomerContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.grvDelivery = new System.Windows.Forms.DataGridView();
+            this.txtDeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDeliveryInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDeliveryCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDeliveryCustomerContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDeliveryCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConTrol.SuspendLayout();
             this.tbpThietBi.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -125,8 +141,14 @@
             this.panel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoiceDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoice)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDelivery)).BeginInit();
             this.SuspendLayout();
             // 
             // tabConTrol
@@ -713,55 +735,111 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblInvoiceSaleOff);
+            this.panel7.Controls.Add(this.label24);
             this.panel7.Controls.Add(this.lblInvoiceDetailsId);
             this.panel7.Controls.Add(this.label23);
-            this.panel7.Controls.Add(this.dataGridView2);
+            this.panel7.Controls.Add(this.grvInvoiceDetails);
             this.panel7.Controls.Add(this.lblInvoiceDetailsPayment);
             this.panel7.Controls.Add(this.label32);
             this.panel7.Controls.Add(this.lblInvoiceTotalPrice);
             this.panel7.Controls.Add(this.label30);
             this.panel7.Controls.Add(this.label20);
-            this.panel7.Controls.Add(this.dataGridView1);
+            this.panel7.Controls.Add(this.grvInvoice);
             this.panel7.Location = new System.Drawing.Point(4, 4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(925, 568);
             this.panel7.TabIndex = 0;
             // 
-            // tabPage2
+            // lblInvoiceDetailsId
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(932, 578);
-            this.tabPage2.TabIndex = 6;
-            this.tabPage2.Text = "Khách Hàng";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.lblInvoiceDetailsId.AutoSize = true;
+            this.lblInvoiceDetailsId.Location = new System.Drawing.Point(765, 41);
+            this.lblInvoiceDetailsId.Name = "lblInvoiceDetailsId";
+            this.lblInvoiceDetailsId.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceDetailsId.TabIndex = 16;
+            this.lblInvoiceDetailsId.Text = "xxx";
             // 
-            // tabPage4
+            // label23
             // 
-            this.tabPage4.ForeColor = System.Drawing.Color.Coral;
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(932, 578);
-            this.tabPage4.TabIndex = 7;
-            this.tabPage4.Text = "Giao Hàng";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(694, 41);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 13);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Mã Hóa Đơn:";
             // 
-            // dataGridView1
+            // grvInvoiceDetails
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtInvoiceId,
-            this.txtInvoiceKhachHangId,
-            this.txtInvoiceDateCreated,
-            this.txtInvoiceSaleOff,
-            this.txtInvoiceTotalPrice,
-            this.btnInvoiceDetails});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(514, 561);
-            this.dataGridView1.TabIndex = 0;
+            this.grvInvoiceDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvInvoiceDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtInvoiceDetailsProductId,
+            this.txtInvoiceDetailsProductName,
+            this.txtInvoiceDetailsQty,
+            this.txtInvoiceDetailsSubTotal});
+            this.grvInvoiceDetails.Location = new System.Drawing.Point(524, 64);
+            this.grvInvoiceDetails.Name = "grvInvoiceDetails";
+            this.grvInvoiceDetails.Size = new System.Drawing.Size(397, 448);
+            this.grvInvoiceDetails.TabIndex = 14;
+            // 
+            // txtInvoiceDetailsProductId
+            // 
+            this.txtInvoiceDetailsProductId.HeaderText = "Thiết Bị Id";
+            this.txtInvoiceDetailsProductId.Name = "txtInvoiceDetailsProductId";
+            this.txtInvoiceDetailsProductId.Width = 80;
+            // 
+            // txtInvoiceDetailsProductName
+            // 
+            this.txtInvoiceDetailsProductName.HeaderText = "Tên Sản Phẩm";
+            this.txtInvoiceDetailsProductName.Name = "txtInvoiceDetailsProductName";
+            this.txtInvoiceDetailsProductName.Width = 120;
+            // 
+            // txtInvoiceDetailsQty
+            // 
+            this.txtInvoiceDetailsQty.HeaderText = "Số Lượng";
+            this.txtInvoiceDetailsQty.Name = "txtInvoiceDetailsQty";
+            this.txtInvoiceDetailsQty.Width = 50;
+            // 
+            // txtInvoiceDetailsSubTotal
+            // 
+            this.txtInvoiceDetailsSubTotal.HeaderText = "Thành tiền";
+            this.txtInvoiceDetailsSubTotal.Name = "txtInvoiceDetailsSubTotal";
+            // 
+            // lblInvoiceDetailsPayment
+            // 
+            this.lblInvoiceDetailsPayment.AutoSize = true;
+            this.lblInvoiceDetailsPayment.Location = new System.Drawing.Point(677, 542);
+            this.lblInvoiceDetailsPayment.Name = "lblInvoiceDetailsPayment";
+            this.lblInvoiceDetailsPayment.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceDetailsPayment.TabIndex = 13;
+            this.lblInvoiceDetailsPayment.Text = "xxx";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(562, 542);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(74, 13);
+            this.label32.TabIndex = 12;
+            this.label32.Text = "Tiền Phải Trả:";
+            // 
+            // lblInvoiceTotalPrice
+            // 
+            this.lblInvoiceTotalPrice.AutoSize = true;
+            this.lblInvoiceTotalPrice.Location = new System.Drawing.Point(677, 522);
+            this.lblInvoiceTotalPrice.Name = "lblInvoiceTotalPrice";
+            this.lblInvoiceTotalPrice.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceTotalPrice.TabIndex = 11;
+            this.lblInvoiceTotalPrice.Text = "xxx";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(562, 522);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(59, 13);
+            this.label30.TabIndex = 10;
+            this.label30.Text = "Tổng Tiền:";
             // 
             // label20
             // 
@@ -773,54 +851,20 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "Chi Tiết Hóa Đơn";
             // 
-            // lblInvoiceTotalPrice
+            // grvInvoice
             // 
-            this.lblInvoiceTotalPrice.AutoSize = true;
-            this.lblInvoiceTotalPrice.Location = new System.Drawing.Point(739, 520);
-            this.lblInvoiceTotalPrice.Name = "lblInvoiceTotalPrice";
-            this.lblInvoiceTotalPrice.Size = new System.Drawing.Size(22, 13);
-            this.lblInvoiceTotalPrice.TabIndex = 11;
-            this.lblInvoiceTotalPrice.Text = "xxx";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(624, 520);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(59, 13);
-            this.label30.TabIndex = 10;
-            this.label30.Text = "Tổng Tiền:";
-            // 
-            // lblInvoiceDetailsPayment
-            // 
-            this.lblInvoiceDetailsPayment.AutoSize = true;
-            this.lblInvoiceDetailsPayment.Location = new System.Drawing.Point(739, 540);
-            this.lblInvoiceDetailsPayment.Name = "lblInvoiceDetailsPayment";
-            this.lblInvoiceDetailsPayment.Size = new System.Drawing.Size(22, 13);
-            this.lblInvoiceDetailsPayment.TabIndex = 13;
-            this.lblInvoiceDetailsPayment.Text = "xxx";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(624, 540);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(74, 13);
-            this.label32.TabIndex = 12;
-            this.label32.Text = "Tiền Phải Trả:";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtInvoiceDetailsProductId,
-            this.txtInvoiceDetailsProductName,
-            this.txtInvoiceDetailsQty,
-            this.txtInvoiceDetailsSubTotal});
-            this.dataGridView2.Location = new System.Drawing.Point(524, 64);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(397, 448);
-            this.dataGridView2.TabIndex = 14;
+            this.grvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvInvoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtInvoiceId,
+            this.txtInvoiceKhachHangId,
+            this.txtInvoiceDateCreated,
+            this.txtInvoiceSaleOff,
+            this.txtInvoiceTotalPrice,
+            this.btnInvoiceDetails});
+            this.grvInvoice.Location = new System.Drawing.Point(4, 4);
+            this.grvInvoice.Name = "grvInvoice";
+            this.grvInvoice.Size = new System.Drawing.Size(514, 561);
+            this.grvInvoice.TabIndex = 0;
             // 
             // txtInvoiceId
             // 
@@ -857,46 +901,147 @@
             this.btnInvoiceDetails.Text = "Xem Chi Tiết";
             this.btnInvoiceDetails.UseColumnTextForButtonValue = true;
             // 
-            // txtInvoiceDetailsProductId
+            // tabPage2
             // 
-            this.txtInvoiceDetailsProductId.HeaderText = "Thiết Bị Id";
-            this.txtInvoiceDetailsProductId.Name = "txtInvoiceDetailsProductId";
-            this.txtInvoiceDetailsProductId.Width = 80;
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(932, 578);
+            this.tabPage2.TabIndex = 6;
+            this.tabPage2.Text = "Khách Hàng";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtInvoiceDetailsProductName
+            // tabPage4
             // 
-            this.txtInvoiceDetailsProductName.HeaderText = "Tên Sản Phẩm";
-            this.txtInvoiceDetailsProductName.Name = "txtInvoiceDetailsProductName";
-            this.txtInvoiceDetailsProductName.Width = 120;
+            this.tabPage4.Controls.Add(this.panel9);
+            this.tabPage4.ForeColor = System.Drawing.Color.Coral;
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(932, 578);
+            this.tabPage4.TabIndex = 7;
+            this.tabPage4.Text = "Giao Hàng";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // txtInvoiceDetailsQty
+            // lblInvoiceSaleOff
             // 
-            this.txtInvoiceDetailsQty.HeaderText = "Số Lượng";
-            this.txtInvoiceDetailsQty.Name = "txtInvoiceDetailsQty";
-            this.txtInvoiceDetailsQty.Width = 50;
+            this.lblInvoiceSaleOff.AutoSize = true;
+            this.lblInvoiceSaleOff.Location = new System.Drawing.Point(734, 523);
+            this.lblInvoiceSaleOff.Name = "lblInvoiceSaleOff";
+            this.lblInvoiceSaleOff.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceSaleOff.TabIndex = 18;
+            this.lblInvoiceSaleOff.Text = "xxx";
             // 
-            // txtInvoiceDetailsSubTotal
+            // label24
             // 
-            this.txtInvoiceDetailsSubTotal.HeaderText = "Thành tiền";
-            this.txtInvoiceDetailsSubTotal.Name = "txtInvoiceDetailsSubTotal";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(706, 523);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(31, 13);
+            this.label24.TabIndex = 17;
+            this.label24.Text = "Giảm";
             // 
-            // lblInvoiceDetailsId
+            // panel8
             // 
-            this.lblInvoiceDetailsId.AutoSize = true;
-            this.lblInvoiceDetailsId.Location = new System.Drawing.Point(765, 41);
-            this.lblInvoiceDetailsId.Name = "lblInvoiceDetailsId";
-            this.lblInvoiceDetailsId.Size = new System.Drawing.Size(22, 13);
-            this.lblInvoiceDetailsId.TabIndex = 16;
-            this.lblInvoiceDetailsId.Text = "xxx";
+            this.panel8.Controls.Add(this.grvCustomer);
+            this.panel8.Location = new System.Drawing.Point(4, 4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(925, 571);
+            this.panel8.TabIndex = 0;
             // 
-            // label23
+            // grvCustomer
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(694, 41);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 13);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Mã Hóa Đơn:";
+            this.grvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtCustomerId,
+            this.txtCustomerName,
+            this.txtCustomerContact,
+            this.txtCustomerAddress});
+            this.grvCustomer.Location = new System.Drawing.Point(4, 4);
+            this.grvCustomer.Name = "grvCustomer";
+            this.grvCustomer.Size = new System.Drawing.Size(918, 564);
+            this.grvCustomer.TabIndex = 0;
+            // 
+            // txtCustomerId
+            // 
+            this.txtCustomerId.HeaderText = "Khách hàng Id";
+            this.txtCustomerId.Name = "txtCustomerId";
+            this.txtCustomerId.Width = 150;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.HeaderText = "Tên Khách Hàng";
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Width = 150;
+            // 
+            // txtCustomerContact
+            // 
+            this.txtCustomerContact.HeaderText = "Số Điện Thoại";
+            this.txtCustomerContact.Name = "txtCustomerContact";
+            this.txtCustomerContact.Width = 150;
+            // 
+            // txtCustomerAddress
+            // 
+            this.txtCustomerAddress.HeaderText = "Địa Chỉ";
+            this.txtCustomerAddress.Name = "txtCustomerAddress";
+            this.txtCustomerAddress.Width = 425;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.grvDelivery);
+            this.panel9.Location = new System.Drawing.Point(4, 4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(925, 571);
+            this.panel9.TabIndex = 0;
+            // 
+            // grvDelivery
+            // 
+            this.grvDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtDeliveryId,
+            this.txtDeliveryInvoiceId,
+            this.txtDeliveryDate,
+            this.txtDeliveryCustomerName,
+            this.txtDeliveryCustomerContact,
+            this.txtDeliveryCustomerAddress});
+            this.grvDelivery.Location = new System.Drawing.Point(3, 4);
+            this.grvDelivery.Name = "grvDelivery";
+            this.grvDelivery.Size = new System.Drawing.Size(919, 564);
+            this.grvDelivery.TabIndex = 0;
+            // 
+            // txtDeliveryId
+            // 
+            this.txtDeliveryId.HeaderText = "Giao Hàng Id";
+            this.txtDeliveryId.Name = "txtDeliveryId";
+            // 
+            // txtDeliveryInvoiceId
+            // 
+            this.txtDeliveryInvoiceId.HeaderText = "Hóa Đơn Id";
+            this.txtDeliveryInvoiceId.Name = "txtDeliveryInvoiceId";
+            // 
+            // txtDeliveryDate
+            // 
+            this.txtDeliveryDate.HeaderText = "Ngày Giao";
+            this.txtDeliveryDate.Name = "txtDeliveryDate";
+            // 
+            // txtDeliveryCustomerName
+            // 
+            this.txtDeliveryCustomerName.HeaderText = "Tên Người Nhận";
+            this.txtDeliveryCustomerName.Name = "txtDeliveryCustomerName";
+            this.txtDeliveryCustomerName.Width = 150;
+            // 
+            // txtDeliveryCustomerContact
+            // 
+            this.txtDeliveryCustomerContact.HeaderText = "SĐT Người Nhận";
+            this.txtDeliveryCustomerContact.Name = "txtDeliveryCustomerContact";
+            this.txtDeliveryCustomerContact.Width = 150;
+            // 
+            // txtDeliveryCustomerAddress
+            // 
+            this.txtDeliveryCustomerAddress.HeaderText = "Địa Chỉ Nhận Hàng";
+            this.txtDeliveryCustomerAddress.Name = "txtDeliveryCustomerAddress";
+            this.txtDeliveryCustomerAddress.Width = 275;
             // 
             // formQuanLyBanHang
             // 
@@ -925,8 +1070,14 @@
             this.tabPage3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoiceDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoice)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).EndInit();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grvDelivery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1001,7 +1152,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblInvoiceDetailsId;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView grvInvoiceDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsQty;
@@ -1011,13 +1162,29 @@
         private System.Windows.Forms.Label lblInvoiceTotalPrice;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grvInvoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceKhachHangId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDateCreated;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceSaleOff;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceTotalPrice;
         private System.Windows.Forms.DataGridViewButtonColumn btnInvoiceDetails;
+        private System.Windows.Forms.Label lblInvoiceSaleOff;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DataGridView grvCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerContact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerAddress;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView grvDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryInvoiceId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryCustomerContact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryCustomerAddress;
     }
 }
 

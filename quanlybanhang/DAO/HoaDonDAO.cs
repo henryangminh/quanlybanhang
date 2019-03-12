@@ -42,7 +42,17 @@ namespace DAO
 
         public DataTable GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from HoaDon", conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public HoaDonDTO GetById(int id)

@@ -58,6 +58,21 @@ namespace DAO
             throw new NotImplementedException();
         }
 
+        public DataTable GetAllInvoiceDetailsByInvoiceId(int id)
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * from HoaDon, CTHD, ThietBi where HoaDon.HDId = CTHD.HDId and CTHD.TBId = ThietBi.TBId and HoaDon.HDId = " + id, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public CTHDDTO GetById(int id)
         {
             throw new NotImplementedException();

@@ -123,5 +123,10 @@ namespace quanlybanhang_winform
                 grvProduct.Rows[n].Cells[4].Value = row[4].ToString();
             }
         }
+
+        public void getInvoice()
+        {
+            
+        }
     }
 }

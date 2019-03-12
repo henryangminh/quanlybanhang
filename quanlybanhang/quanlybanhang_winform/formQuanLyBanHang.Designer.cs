@@ -69,31 +69,50 @@
             this.txtSearchByName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbpLoaiThietBi = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtEditProductType = new System.Windows.Forms.TextBox();
+            this.lblProductTypeId = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.grvProductType = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearchProductType = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnAddProductType = new System.Windows.Forms.Button();
             this.txtProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtLTBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditProductType = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblProductTypeId = new System.Windows.Forms.Label();
-            this.txtEditProductType = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAddProductType = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnSearchProductType = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblInvoiceTotalPrice = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblInvoiceDetailsPayment = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.txtInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceKhachHangId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceSaleOff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInvoiceDetails = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtInvoiceDetailsProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblInvoiceDetailsId = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabConTrol.SuspendLayout();
             this.tbpThietBi.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,9 +120,13 @@
             this.panel1.SuspendLayout();
             this.pnlTimThietBi.SuspendLayout();
             this.tbpLoaiThietBi.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabConTrol
@@ -111,7 +134,6 @@
             this.tabConTrol.Controls.Add(this.tbpThietBi);
             this.tabConTrol.Controls.Add(this.tbpLoaiThietBi);
             this.tabConTrol.Controls.Add(this.tabPage3);
-            this.tabConTrol.Controls.Add(this.tabPage1);
             this.tabConTrol.Controls.Add(this.tabPage2);
             this.tabConTrol.Controls.Add(this.tabPage4);
             this.tabConTrol.Location = new System.Drawing.Point(13, 13);
@@ -495,8 +517,192 @@
             this.tbpLoaiThietBi.Text = "Loại Thiết Bị";
             this.tbpLoaiThietBi.UseVisualStyleBackColor = true;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.txtEditProductType);
+            this.panel6.Controls.Add(this.lblProductTypeId);
+            this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label18);
+            this.panel6.Location = new System.Drawing.Point(420, 117);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(509, 455);
+            this.panel6.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(218, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Sửa";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 63);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 13);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Tên Loại Thiết Bị";
+            // 
+            // txtEditProductType
+            // 
+            this.txtEditProductType.Location = new System.Drawing.Point(107, 60);
+            this.txtEditProductType.Name = "txtEditProductType";
+            this.txtEditProductType.Size = new System.Drawing.Size(359, 20);
+            this.txtEditProductType.TabIndex = 12;
+            // 
+            // lblProductTypeId
+            // 
+            this.lblProductTypeId.AutoSize = true;
+            this.lblProductTypeId.Location = new System.Drawing.Point(92, 14);
+            this.lblProductTypeId.Name = "lblProductTypeId";
+            this.lblProductTypeId.Size = new System.Drawing.Size(22, 13);
+            this.lblProductTypeId.TabIndex = 11;
+            this.lblProductTypeId.Text = "xxx";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(72, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Id:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label18.Location = new System.Drawing.Point(8, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 29);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Sửa";
+            // 
+            // grvProductType
+            // 
+            this.grvProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvProductType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtProductTypeID,
+            this.txtLTBName,
+            this.btnEditProductType});
+            this.grvProductType.Location = new System.Drawing.Point(3, 117);
+            this.grvProductType.Name = "grvProductType";
+            this.grvProductType.Size = new System.Drawing.Size(410, 455);
+            this.grvProductType.TabIndex = 0;
+            // 
+            // txtProductTypeID
+            // 
+            this.txtProductTypeID.HeaderText = "Id";
+            this.txtProductTypeID.Name = "txtProductTypeID";
+            // 
+            // txtLTBName
+            // 
+            this.txtLTBName.HeaderText = "Tên Loại Thiết Bị";
+            this.txtLTBName.Name = "txtLTBName";
+            this.txtLTBName.Width = 210;
+            // 
+            // btnEditProductType
+            // 
+            this.btnEditProductType.HeaderText = "";
+            this.btnEditProductType.Name = "btnEditProductType";
+            this.btnEditProductType.Text = "Sửa";
+            this.btnEditProductType.UseColumnTextForButtonValue = true;
+            this.btnEditProductType.Width = 55;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnAddProductType);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Location = new System.Drawing.Point(4, 36);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(409, 75);
+            this.panel4.TabIndex = 5;
+            // 
+            // btnAddProductType
+            // 
+            this.btnAddProductType.Location = new System.Drawing.Point(325, 44);
+            this.btnAddProductType.Name = "btnAddProductType";
+            this.btnAddProductType.Size = new System.Drawing.Size(75, 23);
+            this.btnAddProductType.TabIndex = 6;
+            this.btnAddProductType.Text = "Thêm";
+            this.btnAddProductType.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(5, 48);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Tìm theo tên";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(76, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(243, 20);
+            this.textBox2.TabIndex = 7;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(0, 113);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(400, 107);
+            this.panel5.TabIndex = 6;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label16.Location = new System.Drawing.Point(5, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(307, 29);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Thêm Loại Sản Phẩm Mới";
+            // 
+            // btnSearchProductType
+            // 
+            this.btnSearchProductType.Location = new System.Drawing.Point(329, 6);
+            this.btnSearchProductType.Name = "btnSearchProductType";
+            this.btnSearchProductType.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchProductType.TabIndex = 3;
+            this.btnSearchProductType.Text = "Tìm";
+            this.btnSearchProductType.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(80, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(243, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tìm theo tên";
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(4, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(409, 23);
+            this.panel3.TabIndex = 4;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -505,15 +711,21 @@
             this.tabPage3.Text = "Hóa Đơn";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // panel7
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(932, 578);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Chi tiết hóa đơn";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.panel7.Controls.Add(this.lblInvoiceDetailsId);
+            this.panel7.Controls.Add(this.label23);
+            this.panel7.Controls.Add(this.dataGridView2);
+            this.panel7.Controls.Add(this.lblInvoiceDetailsPayment);
+            this.panel7.Controls.Add(this.label32);
+            this.panel7.Controls.Add(this.lblInvoiceTotalPrice);
+            this.panel7.Controls.Add(this.label30);
+            this.panel7.Controls.Add(this.label20);
+            this.panel7.Controls.Add(this.dataGridView1);
+            this.panel7.Location = new System.Drawing.Point(4, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(925, 568);
+            this.panel7.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -536,188 +748,155 @@
             this.tabPage4.Text = "Giao Hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // grvProductType
+            // dataGridView1
             // 
-            this.grvProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvProductType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtProductTypeID,
-            this.txtLTBName,
-            this.btnEditProductType});
-            this.grvProductType.Location = new System.Drawing.Point(3, 117);
-            this.grvProductType.Name = "grvProductType";
-            this.grvProductType.Size = new System.Drawing.Size(410, 455);
-            this.grvProductType.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtInvoiceId,
+            this.txtInvoiceKhachHangId,
+            this.txtInvoiceDateCreated,
+            this.txtInvoiceSaleOff,
+            this.txtInvoiceTotalPrice,
+            this.btnInvoiceDetails});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(514, 561);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // label15
+            // label20
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Tìm theo tên";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label20.Location = new System.Drawing.Point(631, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(206, 29);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Chi Tiết Hóa Đơn";
             // 
-            // textBox1
+            // lblInvoiceTotalPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 2;
+            this.lblInvoiceTotalPrice.AutoSize = true;
+            this.lblInvoiceTotalPrice.Location = new System.Drawing.Point(739, 520);
+            this.lblInvoiceTotalPrice.Name = "lblInvoiceTotalPrice";
+            this.lblInvoiceTotalPrice.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceTotalPrice.TabIndex = 11;
+            this.lblInvoiceTotalPrice.Text = "xxx";
             // 
-            // btnSearchProductType
+            // label30
             // 
-            this.btnSearchProductType.Location = new System.Drawing.Point(329, 6);
-            this.btnSearchProductType.Name = "btnSearchProductType";
-            this.btnSearchProductType.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchProductType.TabIndex = 3;
-            this.btnSearchProductType.Text = "Tìm";
-            this.btnSearchProductType.UseVisualStyleBackColor = true;
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(624, 520);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(59, 13);
+            this.label30.TabIndex = 10;
+            this.label30.Text = "Tổng Tiền:";
             // 
-            // panel3
+            // lblInvoiceDetailsPayment
             // 
-            this.panel3.Location = new System.Drawing.Point(4, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(409, 23);
-            this.panel3.TabIndex = 4;
+            this.lblInvoiceDetailsPayment.AutoSize = true;
+            this.lblInvoiceDetailsPayment.Location = new System.Drawing.Point(739, 540);
+            this.lblInvoiceDetailsPayment.Name = "lblInvoiceDetailsPayment";
+            this.lblInvoiceDetailsPayment.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceDetailsPayment.TabIndex = 13;
+            this.lblInvoiceDetailsPayment.Text = "xxx";
             // 
-            // panel4
+            // label32
             // 
-            this.panel4.Controls.Add(this.btnAddProductType);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Location = new System.Drawing.Point(4, 36);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(409, 75);
-            this.panel4.TabIndex = 5;
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(624, 540);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(74, 13);
+            this.label32.TabIndex = 12;
+            this.label32.Text = "Tiền Phải Trả:";
             // 
-            // panel5
+            // dataGridView2
             // 
-            this.panel5.Location = new System.Drawing.Point(0, 113);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(400, 107);
-            this.panel5.TabIndex = 6;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtInvoiceDetailsProductId,
+            this.txtInvoiceDetailsProductName,
+            this.txtInvoiceDetailsQty,
+            this.txtInvoiceDetailsSubTotal});
+            this.dataGridView2.Location = new System.Drawing.Point(524, 64);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(397, 448);
+            this.dataGridView2.TabIndex = 14;
             // 
-            // textBox2
+            // txtInvoiceId
             // 
-            this.textBox2.Location = new System.Drawing.Point(76, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtInvoiceId.HeaderText = "Id";
+            this.txtInvoiceId.Name = "txtInvoiceId";
+            this.txtInvoiceId.Width = 40;
             // 
-            // label16
+            // txtInvoiceKhachHangId
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label16.Location = new System.Drawing.Point(5, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(307, 29);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Thêm Loại Sản Phẩm Mới";
+            this.txtInvoiceKhachHangId.HeaderText = "Mã Khách Hàng";
+            this.txtInvoiceKhachHangId.Name = "txtInvoiceKhachHangId";
             // 
-            // label17
+            // txtInvoiceDateCreated
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(5, 48);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 13);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "Tìm theo tên";
+            this.txtInvoiceDateCreated.HeaderText = "Ngày Lập";
+            this.txtInvoiceDateCreated.Name = "txtInvoiceDateCreated";
             // 
-            // btnAddProductType
+            // txtInvoiceSaleOff
             // 
-            this.btnAddProductType.Location = new System.Drawing.Point(325, 44);
-            this.btnAddProductType.Name = "btnAddProductType";
-            this.btnAddProductType.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProductType.TabIndex = 6;
-            this.btnAddProductType.Text = "Thêm";
-            this.btnAddProductType.UseVisualStyleBackColor = true;
+            this.txtInvoiceSaleOff.HeaderText = "Giảm Giá";
+            this.txtInvoiceSaleOff.Name = "txtInvoiceSaleOff";
+            this.txtInvoiceSaleOff.Width = 50;
             // 
-            // txtProductTypeID
+            // txtInvoiceTotalPrice
             // 
-            this.txtProductTypeID.HeaderText = "Id";
-            this.txtProductTypeID.Name = "txtProductTypeID";
+            this.txtInvoiceTotalPrice.HeaderText = "Tổng tiền";
+            this.txtInvoiceTotalPrice.Name = "txtInvoiceTotalPrice";
+            this.txtInvoiceTotalPrice.Width = 80;
             // 
-            // txtLTBName
+            // btnInvoiceDetails
             // 
-            this.txtLTBName.HeaderText = "Tên Loại Thiết Bị";
-            this.txtLTBName.Name = "txtLTBName";
-            this.txtLTBName.Width = 210;
+            this.btnInvoiceDetails.HeaderText = "";
+            this.btnInvoiceDetails.Name = "btnInvoiceDetails";
+            this.btnInvoiceDetails.Text = "Xem Chi Tiết";
+            this.btnInvoiceDetails.UseColumnTextForButtonValue = true;
             // 
-            // btnEditProductType
+            // txtInvoiceDetailsProductId
             // 
-            this.btnEditProductType.HeaderText = "";
-            this.btnEditProductType.Name = "btnEditProductType";
-            this.btnEditProductType.Text = "Sửa";
-            this.btnEditProductType.UseColumnTextForButtonValue = true;
-            this.btnEditProductType.Width = 55;
+            this.txtInvoiceDetailsProductId.HeaderText = "Thiết Bị Id";
+            this.txtInvoiceDetailsProductId.Name = "txtInvoiceDetailsProductId";
+            this.txtInvoiceDetailsProductId.Width = 80;
             // 
-            // panel6
+            // txtInvoiceDetailsProductName
             // 
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.label21);
-            this.panel6.Controls.Add(this.txtEditProductType);
-            this.panel6.Controls.Add(this.lblProductTypeId);
-            this.panel6.Controls.Add(this.label19);
-            this.panel6.Controls.Add(this.label18);
-            this.panel6.Location = new System.Drawing.Point(420, 117);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(509, 455);
-            this.panel6.TabIndex = 6;
+            this.txtInvoiceDetailsProductName.HeaderText = "Tên Sản Phẩm";
+            this.txtInvoiceDetailsProductName.Name = "txtInvoiceDetailsProductName";
+            this.txtInvoiceDetailsProductName.Width = 120;
             // 
-            // label18
+            // txtInvoiceDetailsQty
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label18.Location = new System.Drawing.Point(8, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(58, 29);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Sửa";
+            this.txtInvoiceDetailsQty.HeaderText = "Số Lượng";
+            this.txtInvoiceDetailsQty.Name = "txtInvoiceDetailsQty";
+            this.txtInvoiceDetailsQty.Width = 50;
             // 
-            // label19
+            // txtInvoiceDetailsSubTotal
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(72, 14);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(19, 13);
-            this.label19.TabIndex = 10;
-            this.label19.Text = "Id:";
+            this.txtInvoiceDetailsSubTotal.HeaderText = "Thành tiền";
+            this.txtInvoiceDetailsSubTotal.Name = "txtInvoiceDetailsSubTotal";
             // 
-            // lblProductTypeId
+            // lblInvoiceDetailsId
             // 
-            this.lblProductTypeId.AutoSize = true;
-            this.lblProductTypeId.Location = new System.Drawing.Point(92, 14);
-            this.lblProductTypeId.Name = "lblProductTypeId";
-            this.lblProductTypeId.Size = new System.Drawing.Size(22, 13);
-            this.lblProductTypeId.TabIndex = 11;
-            this.lblProductTypeId.Text = "xxx";
+            this.lblInvoiceDetailsId.AutoSize = true;
+            this.lblInvoiceDetailsId.Location = new System.Drawing.Point(765, 41);
+            this.lblInvoiceDetailsId.Name = "lblInvoiceDetailsId";
+            this.lblInvoiceDetailsId.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceDetailsId.TabIndex = 16;
+            this.lblInvoiceDetailsId.Text = "xxx";
             // 
-            // txtEditProductType
+            // label23
             // 
-            this.txtEditProductType.Location = new System.Drawing.Point(107, 60);
-            this.txtEditProductType.Name = "txtEditProductType";
-            this.txtEditProductType.Size = new System.Drawing.Size(359, 20);
-            this.txtEditProductType.TabIndex = 12;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(13, 63);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(88, 13);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "Tên Loại Thiết Bị";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(218, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sửa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(694, 41);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(71, 13);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Mã Hóa Đơn:";
             // 
             // formQuanLyBanHang
             // 
@@ -738,11 +917,16 @@
             this.pnlTimThietBi.PerformLayout();
             this.tbpLoaiThietBi.ResumeLayout(false);
             this.tbpLoaiThietBi.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -753,7 +937,6 @@
         private System.Windows.Forms.TabPage tbpThietBi;
         private System.Windows.Forms.TabPage tbpLoaiThietBi;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel pnlTimThietBi;
@@ -815,6 +998,26 @@
         private System.Windows.Forms.Label lblProductTypeId;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lblInvoiceDetailsId;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsSubTotal;
+        private System.Windows.Forms.Label lblInvoiceDetailsPayment;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lblInvoiceTotalPrice;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceKhachHangId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDateCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceSaleOff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceTotalPrice;
+        private System.Windows.Forms.DataGridViewButtonColumn btnInvoiceDetails;
     }
 }
 

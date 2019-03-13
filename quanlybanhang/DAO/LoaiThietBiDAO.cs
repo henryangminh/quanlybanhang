@@ -14,7 +14,15 @@ namespace DAO
     {
         public void Add(LoaiThietBiDTO entity)
         {
-            throw new NotImplementedException();
+            using (SqlCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO LoaiThietBi VALUES (@ltbName)";
+                command.Parameters.AddWithValue("@ltbName", entity.TypeName);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         public void Delete(int id)
@@ -24,7 +32,16 @@ namespace DAO
 
         public void Edit(LoaiThietBiDTO entity)
         {
-            throw new NotImplementedException();
+            using (SqlCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "UPDATE LoaiThietBi SET LTBName = @ltbName WHERE LTBId = @ltbId";
+                command.Parameters.AddWithValue("@ltbName", entity.TypeName);
+                command.Parameters.AddWithValue("@ltbId", entity.Id);
+
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         public DataTable GetAll()

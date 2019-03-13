@@ -28,10 +28,42 @@ namespace quanlybanhang_winform
             btnAddProduct.Click += new EventHandler(addProduct);
             grvInvoice.CellClick += new DataGridViewCellEventHandler(getInvoiceDetails);
             grvProductType.CellClick += new DataGridViewCellEventHandler(editProductTypes);
+            btnAddProductType.Click += new EventHandler(addProductType);
+            btnProductTypeEdit.Click += new EventHandler(editProductType);
 
             List<string> tbType = getLoaiThietBi();
             tbType.Insert(0, "");
             cbxAddProduct.DataSource = tbType;
+        }
+
+        private void editProductType(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(lblProductTypeId.Text.ToString());
+            string typename = txtEditProductType.Text.ToString();
+
+            LoaiThietBiDTO thietBiDTO = new LoaiThietBiDTO(id, typename);
+            LoaiThietBiBUS loaiThietBiBUS = new LoaiThietBiBUS();
+            loaiThietBiBUS.Edit(thietBiDTO);
+
+            txtProductTypeNameInput.Text = "";
+
+            grvProductType.Rows.Clear();
+            getProductType();
+        }
+
+        private void addProductType(object sender, EventArgs e)
+        {
+            int ProductTypeId = 0;
+            string txtProductTypeName = txtProductTypeNameInput.Text.ToString();
+
+            LoaiThietBiDTO thietBiDTO = new LoaiThietBiDTO(ProductTypeId, txtProductTypeName);
+            LoaiThietBiBUS loaiThietBiBUS = new LoaiThietBiBUS();
+            loaiThietBiBUS.Add(thietBiDTO);
+
+            txtProductTypeNameInput.Text = "";
+
+            grvProductType.Rows.Clear();
+            getProductType();
         }
 
         private void getInvoiceDetails(object sender, DataGridViewCellEventArgs e)

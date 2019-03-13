@@ -21,5 +21,15 @@ namespace BUS
         {
             return a.GetById(id);
         }
+
+        public void Add(LoaiThietBiDTO loaiThietBiDTO)
+        {
+            a.Add(loaiThietBiDTO);
+        }
+
+        public void Edit(LoaiThietBiDTO loaiThietBiDTO)
+        {
+            a.Edit(loaiThietBiDTO);
+        }
     }
 }

@@ -70,7 +70,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbpLoaiThietBi = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnProductTypeEdit = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.txtEditProductType = new System.Windows.Forms.TextBox();
             this.lblProductTypeId = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAddProductType = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProductTypeNameInput = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.btnSearchProductType = new System.Windows.Forms.Button();
@@ -92,6 +92,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblInvoiceSaleOff = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.lblInvoiceDetailsId = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.grvInvoiceDetails = new System.Windows.Forms.DataGridView();
@@ -112,15 +114,13 @@
             this.txtInvoiceTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInvoiceDetails = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.lblInvoiceSaleOff = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.grvCustomer = new System.Windows.Forms.DataGridView();
             this.txtCustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.grvDelivery = new System.Windows.Forms.DataGridView();
             this.txtDeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,9 +144,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvInvoiceDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvInvoice)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDelivery)).BeginInit();
             this.SuspendLayout();
@@ -541,7 +541,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.btnProductTypeEdit);
             this.panel6.Controls.Add(this.label21);
             this.panel6.Controls.Add(this.txtEditProductType);
             this.panel6.Controls.Add(this.lblProductTypeId);
@@ -552,14 +552,14 @@
             this.panel6.Size = new System.Drawing.Size(509, 455);
             this.panel6.TabIndex = 6;
             // 
-            // button1
+            // btnProductTypeEdit
             // 
-            this.button1.Location = new System.Drawing.Point(218, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sửa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnProductTypeEdit.Location = new System.Drawing.Point(218, 86);
+            this.btnProductTypeEdit.Name = "btnProductTypeEdit";
+            this.btnProductTypeEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnProductTypeEdit.TabIndex = 9;
+            this.btnProductTypeEdit.Text = "Sửa";
+            this.btnProductTypeEdit.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -640,7 +640,7 @@
             // 
             this.panel4.Controls.Add(this.btnAddProductType);
             this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtProductTypeNameInput);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Location = new System.Drawing.Point(4, 36);
@@ -662,16 +662,16 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(5, 48);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 13);
+            this.label17.Size = new System.Drawing.Size(101, 13);
             this.label17.TabIndex = 8;
-            this.label17.Text = "Tìm theo tên";
+            this.label17.Text = "Tên Loại Sản Phẩm";
             // 
-            // textBox2
+            // txtProductTypeNameInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(76, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtProductTypeNameInput.Location = new System.Drawing.Point(108, 45);
+            this.txtProductTypeNameInput.Name = "txtProductTypeNameInput";
+            this.txtProductTypeNameInput.Size = new System.Drawing.Size(207, 20);
+            this.txtProductTypeNameInput.TabIndex = 7;
             // 
             // panel5
             // 
@@ -750,6 +750,24 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(925, 568);
             this.panel7.TabIndex = 0;
+            // 
+            // lblInvoiceSaleOff
+            // 
+            this.lblInvoiceSaleOff.AutoSize = true;
+            this.lblInvoiceSaleOff.Location = new System.Drawing.Point(734, 523);
+            this.lblInvoiceSaleOff.Name = "lblInvoiceSaleOff";
+            this.lblInvoiceSaleOff.Size = new System.Drawing.Size(22, 13);
+            this.lblInvoiceSaleOff.TabIndex = 18;
+            this.lblInvoiceSaleOff.Text = "xxx";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(706, 523);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(31, 13);
+            this.label24.TabIndex = 17;
+            this.label24.Text = "Giảm";
             // 
             // lblInvoiceDetailsId
             // 
@@ -912,36 +930,6 @@
             this.tabPage2.Text = "Khách Hàng";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.panel9);
-            this.tabPage4.ForeColor = System.Drawing.Color.Coral;
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(932, 578);
-            this.tabPage4.TabIndex = 7;
-            this.tabPage4.Text = "Giao Hàng";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // lblInvoiceSaleOff
-            // 
-            this.lblInvoiceSaleOff.AutoSize = true;
-            this.lblInvoiceSaleOff.Location = new System.Drawing.Point(734, 523);
-            this.lblInvoiceSaleOff.Name = "lblInvoiceSaleOff";
-            this.lblInvoiceSaleOff.Size = new System.Drawing.Size(22, 13);
-            this.lblInvoiceSaleOff.TabIndex = 18;
-            this.lblInvoiceSaleOff.Text = "xxx";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(706, 523);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(31, 13);
-            this.label24.TabIndex = 17;
-            this.label24.Text = "Giảm";
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.grvCustomer);
@@ -986,6 +974,18 @@
             this.txtCustomerAddress.HeaderText = "Địa Chỉ";
             this.txtCustomerAddress.Name = "txtCustomerAddress";
             this.txtCustomerAddress.Width = 425;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.panel9);
+            this.tabPage4.ForeColor = System.Drawing.Color.Coral;
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(932, 578);
+            this.tabPage4.TabIndex = 7;
+            this.tabPage4.Text = "Giao Hàng";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
@@ -1073,9 +1073,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvInvoiceDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvInvoice)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvDelivery)).EndInit();
             this.ResumeLayout(false);
@@ -1135,7 +1135,7 @@
         private System.Windows.Forms.DataGridView grvProductType;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProductTypeNameInput;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnAddProductType;
@@ -1143,7 +1143,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txtLTBName;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditProductType;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnProductTypeEdit;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtEditProductType;
         private System.Windows.Forms.Label lblProductTypeId;

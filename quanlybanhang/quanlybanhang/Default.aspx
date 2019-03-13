@@ -3,22 +3,19 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <form id="frmSearch">
-        <h1>Xin chào! Mua gì hông nạ?</h1>
-        <div class="form group form-row">
-            <div class="col-md-12 row">
-                <div class="col-md-5">
-                      <input type="text" id="txtSearch" class="form-control" runat="server" placeholder="Nhập tên Sản phẩm">
-                        
+        <div class="col-md-12" style="margin-bottom:10px">
+            <h1>Xin chào!</h1>
+            <div class="form group form-row">
+                <div class="col-md-3">
+                        <input type="text" id="txtSearch" class="form-control" runat="server" placeholder="Nhập tên Sản phẩm">
                 </div>
-                 <div class="col-md-1">
-                      <button type="button" class="btn btn-primary"  id="findTB" style="float:left" onclick="LoadTBByName()"><i class="fa fa-search"></i></button>
-                 </div>
-             
-           
-        </div>        
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary"  id="findTB" style="float:left" onclick="LoadTBByName()"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
     </form>
     <form id="frmProduct">
-        <div class="row">
         <div class="col-sm-5">
             <table class="table table-bordered" id="tblProduct" >
                 <thead>
@@ -64,7 +61,7 @@
     <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">
         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#LapHoaDon" id="btnLapHoaDon">Lập hóa đơn</button>
     </div>
-    </div>
+    
     <!--Modal-->
     <form id="formMuahang">
         <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,24 +75,23 @@
                         <div class="form-group row" style="display: flex;justify-content: center;align-items: center;">
                             <input type="hidden" id="txtMaKhachHang" value="0" runat="server" />
                             <input type="hidden" id="txtKHContact" value="0" RUNAT="server"/>
-                            <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại: </label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">
+                                <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại: </label>
                                 <input type="text" class="form-control" id="txtPhoneNumber" placeholder="Điện thoại" runat="server" onkeydown="return keyispressed(event);">
-                                <button type="button" class="btn btn-primary" id="findKH"  onclick="LoadKH()">Tìm!</button>
-                           
+                                <button type="button" class="btn btn-primary" id="findKH"  onclick="LoadKH()" style="margin-left:10px">Tìm!</button>
+                                <button class="btn btn-primary" id="btnAddnewKH" type="button" style="margin-left:10px">Thêm khách hàng mới</button>
                             </div>
-                            <button class="btn btn-primary" id="btnAddnewKH" type="button">Thêm khách hàng mới</button>
                         </div>
-                        <div class="form-group row" style="display: flex;">
-                            <label for="txtAddress">Địa chỉ:</label>
-                            <input type="text" id="txtAddress" class="form-control" runat="server" readonly/>
-                        </div>
-                        <div class="form-group row" style="display: flex;">
-                           <input type="hidden" id="txtCustomerID" class="form-control" value="0" runat="server"/>
-                        </div>
-                        <div class="form-group row" style="display: flex;">
-                            <label for="txtCustomerName">Tên khách hàng:</label>
-                            <input type="text" id="txtCustomerName" class="form-control" runat="server" readonly/>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="txtAddress">Địa chỉ:</label>
+                                <input type="text" id="txtAddress" class="form-control" runat="server" readonly/>
+                            </div>
+                            <input type="hidden" id="txtCustomerID" class="form-control" value="0" runat="server"/>
+                            <div class="col-lg-6">
+                                <label for="txtCustomerName">Tên khách hàng:</label>
+                                <input type="text" id="txtCustomerName" class="form-control" runat="server" readonly/>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">

@@ -61,13 +61,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtThietBiName = new System.Windows.Forms.TextBox();
-            this.pnlTimThietBi = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbxSearchByType = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearchByName = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tbpLoaiThietBi = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnProductTypeEdit = new System.Windows.Forms.Button();
@@ -134,7 +127,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProduct)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnlTimThietBi.SuspendLayout();
             this.tbpLoaiThietBi.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).BeginInit();
@@ -168,7 +160,6 @@
             // 
             this.tbpThietBi.Controls.Add(this.panel2);
             this.tbpThietBi.Controls.Add(this.panel1);
-            this.tbpThietBi.Controls.Add(this.pnlTimThietBi);
             this.tbpThietBi.Location = new System.Drawing.Point(4, 22);
             this.tbpThietBi.Name = "tbpThietBi";
             this.tbpThietBi.Padding = new System.Windows.Forms.Padding(3);
@@ -368,7 +359,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtThietBiName);
-            this.panel1.Location = new System.Drawing.Point(7, 65);
+            this.panel1.Location = new System.Drawing.Point(7, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(919, 142);
             this.panel1.TabIndex = 1;
@@ -456,71 +447,6 @@
             this.txtThietBiName.Name = "txtThietBiName";
             this.txtThietBiName.Size = new System.Drawing.Size(297, 20);
             this.txtThietBiName.TabIndex = 5;
-            // 
-            // pnlTimThietBi
-            // 
-            this.pnlTimThietBi.Controls.Add(this.label5);
-            this.pnlTimThietBi.Controls.Add(this.cbxSearchByType);
-            this.pnlTimThietBi.Controls.Add(this.label2);
-            this.pnlTimThietBi.Controls.Add(this.label1);
-            this.pnlTimThietBi.Controls.Add(this.txtSearchByName);
-            this.pnlTimThietBi.Controls.Add(this.btnSearch);
-            this.pnlTimThietBi.Location = new System.Drawing.Point(6, 6);
-            this.pnlTimThietBi.Name = "pnlTimThietBi";
-            this.pnlTimThietBi.Size = new System.Drawing.Size(920, 52);
-            this.pnlTimThietBi.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label5.Location = new System.Drawing.Point(15, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 29);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Tìm";
-            // 
-            // cbxSearchByType
-            // 
-            this.cbxSearchByType.FormattingEnabled = true;
-            this.cbxSearchByType.Location = new System.Drawing.Point(523, 12);
-            this.cbxSearchByType.Name = "cbxSearchByType";
-            this.cbxSearchByType.Size = new System.Drawing.Size(227, 21);
-            this.cbxSearchByType.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(449, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tìm theo loại";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Tìm theo tên";
-            // 
-            // txtSearchByName
-            // 
-            this.txtSearchByName.Location = new System.Drawing.Point(146, 14);
-            this.txtSearchByName.Name = "txtSearchByName";
-            this.txtSearchByName.Size = new System.Drawing.Size(297, 20);
-            this.txtSearchByName.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(756, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "Tìm";
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // tbpLoaiThietBi
             // 
@@ -1058,8 +984,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvProduct)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pnlTimThietBi.ResumeLayout(false);
-            this.pnlTimThietBi.PerformLayout();
             this.tbpLoaiThietBi.ResumeLayout(false);
             this.tbpLoaiThietBi.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1090,14 +1014,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Panel pnlTimThietBi;
-        private System.Windows.Forms.ComboBox cbxSearchByType;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearchByName;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtThietBiName;

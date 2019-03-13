@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using DTO.Entities;
 
 namespace BUS
 {
@@ -23,6 +24,15 @@ namespace BUS
         public void UpdateQty(int id, int qty)
         {
             a.UpdateQty(id, qty);
+        }
+        public void Edit(ThietBiDTO thietBiDTO)
+        {
+            a.Edit(thietBiDTO);
+        }
+
+        public void Add(ThietBiDTO thietBiDTO)
+        {
+            a.Add(thietBiDTO);
         }
     }
 }

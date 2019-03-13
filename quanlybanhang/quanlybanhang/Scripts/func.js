@@ -68,6 +68,11 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
         $('#lblTotalPrice').text(TotalPrice);
     })
 
+    $('body').on('change', '#SelectedQtyProduct', function () {
+        if ($(this).val() >= $(this).attr('max'))
+            $(this).val($(this).attr('max'));
+    })
+
     $('body').on('click', '#btnDelRow', function () {
         var thisObj = $(this);
         var id = thisObj.parent('tr').attr('value');
@@ -86,8 +91,13 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
     $('body').on('change', '#txtQty', function () {
         var thisObj = $(this);
         var qty = thisObj.val();
+        var qtyMax = thisObj.attr('max');
         var price = thisObj.parent('td').parent('tr').find('td:eq(2)').attr('value');
         var id = thisObj.parent('td').parent('tr').attr('value');
+        if (qty > qtyMax) {
+            qty = qtyMax;
+            thisObj.val(qtyMax);
+        }
         TotalPrice = TotalPrice - parseInt($(this).parent('td').parent('tr').find('td:eq(2)').text());
         $(this).parent('td').parent('tr').find('td:eq(2)').text(qty * price);
         TotalPrice = TotalPrice + qty * price;
@@ -398,7 +408,9 @@ function LoadTBByName() {
                         console.log(e)
                     },
                     success: function (result1) {
-                       var a = '<tr><td><input type="checkbox" runat="server" id="chkSelected" value="1" oncheckedchanged="addListSelect"></td>' +
+                        var isDisabled = "";
+                        if (item.Qty == 0)  isDisabled = "disabled"
+                        var a = '<tr><td><input type="checkbox" runat="server" id="chkSelected" value="1" oncheckedchanged="addListSelect" ' + isDisabled + ' ></td>' +
                             '<td>' + item.TBName + '</td>' +
                             '<td>' + result1.d.TypeName + '</td>' +
                             '<td>' + item.Price + '</td>' +

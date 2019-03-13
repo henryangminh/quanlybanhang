@@ -19,5 +19,10 @@ namespace BUS
         {
             return a.GetByType(typeId);
         }
+        
+        public void UpdateQty(int id, int qty)
+        {
+            a.UpdateQty(id, qty);
+        }
     }
 }

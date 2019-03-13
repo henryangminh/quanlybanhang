@@ -22,15 +22,6 @@ namespace quanlybanhang {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtSearch;
         
         /// <summary>
-        /// slcType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect slcType;
-        
-        /// <summary>
         /// tbl_ThietBi control.
         /// </summary>
         /// <remarks>

@@ -32,10 +32,10 @@ namespace DAO
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select * from LoaiThietBi", conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                SqlDataAdapter da_ltb = new SqlDataAdapter("Select * from LoaiThietBi", conn);
+                DataTable dt_ltb = new DataTable();
+                da_ltb.Fill(dt_ltb);
+                return dt_ltb;
             }
             catch
             {

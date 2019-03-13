@@ -23,17 +23,17 @@ namespace quanlybanhang
         {
 
             DataTable tb = tbBus.GetAll();
-            DataTable ltb = ltbBus.GetAll();
+            //DataTable ltb = ltbBus.GetAll();
             //DataTable kh = khBus.GetByContact();
             //slcType.Items.Clear();
 
 
-            foreach (DataRow ltb_row in ltb.Rows)
-            {
-                string text = ltb_row.ItemArray[1].ToString();
-                string val = ltb_row.ItemArray[0].ToString();
-                slcType.Items.Add(new ListItem(text, val));
-            }
+            //foreach (DataRow ltb_row in ltb.Rows)
+            //{
+            //    string text = ltb_row.ItemArray[1].ToString();
+            //    string val = ltb_row.ItemArray[0].ToString();
+            //    slcType.Items.Add(new ListItem(text, val));
+            //}
             foreach (DataRow row in tb.Rows)
             {
                 HtmlTableRow row2 = new HtmlTableRow();
@@ -109,10 +109,19 @@ namespace quanlybanhang
         }
 
         [WebMethod]
+        public static void UpdateTBQty(int id, int qty)
+        {
+            ThietBiBUS _tbbus = new ThietBiBUS();
+            _tbbus.UpdateQty(id, qty);
+        }
+     
+
+        [WebMethod]
         public static List<ThietBiDTO> GetByType(int Id)
         {
+            ThietBiBUS tbBus_gbt = new ThietBiBUS();
             List<ThietBiDTO> rs = new List<ThietBiDTO>();
-            DataTable tb = tbBus.GetByType(Id);
+            DataTable tb = tbBus_gbt.GetByType(Id);
             foreach (DataRow row in tb.Rows)
             {
 
@@ -128,6 +137,53 @@ namespace quanlybanhang
             return rs;
         }
 
+        [WebMethod]
+        public static List<ThietBiDTO> GetByName(string keyword)
+        {
+            List<ThietBiDTO> rs = new List<ThietBiDTO>();
+            ThietBiBUS _tbBus = new ThietBiBUS();
+            DataTable tb = _tbBus.GetAll();
+            //if(keyword=="")
+            //{
+            //    foreach (DataRow row in tb.Rows)
+            //    {
+
+            //            int TBId = int.Parse(row.ItemArray[0].ToString());
+            //            string TBName = row.ItemArray[1].ToString();
+            //            int LTBId = int.Parse(row.ItemArray[2].ToString());
+            //            int Price = int.Parse(row.ItemArray[3].ToString());
+            //            int Qty = int.Parse(row.ItemArray[4].ToString());
+            //            ThietBiDTO temp = new ThietBiDTO(TBId, TBName, LTBId, Price, Qty);
+            //            rs.Add(temp);
+                  
+            //    }
+            //    return rs;
+            //}
+            foreach (DataRow row in tb.Rows)
+            {
+                if(row.ItemArray[1].ToString().ToUpper().Contains(keyword.ToUpper()))
+                {
+
+                    int TBId = int.Parse(row.ItemArray[0].ToString());
+                    string TBName = row.ItemArray[1].ToString();
+                    int LTBId = int.Parse(row.ItemArray[2].ToString());
+                    int Price = int.Parse(row.ItemArray[3].ToString());
+                    int Qty = int.Parse(row.ItemArray[4].ToString());
+                    ThietBiDTO temp = new ThietBiDTO(TBId, TBName, LTBId, Price, Qty);
+                    rs.Add(temp);
+                }
+
+            }
+            return rs;
+        }
+
+        [WebMethod]
+        public static LoaiThietBiDTO GetLTBById(int id)
+        {
+            LoaiThietBiBUS ltbBus_gltbbi = new LoaiThietBiBUS();
+            LoaiThietBiDTO loaiThietBiDTO = ltbBus_gltbbi.GetById(id);
+            return loaiThietBiDTO;
+        }
 
         [WebMethod]
         public static void SaveKhachHang(int KHId, string Name, string Contact, string Address)

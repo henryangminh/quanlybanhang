@@ -28,6 +28,17 @@ namespace DAO
             throw new NotImplementedException();
         }
 
+        public void UpdateQty(int id, int qty)
+        {
+            SqlCommand _sqlcm = new SqlCommand();
+            _sqlcm.Connection = conn;
+            _sqlcm.CommandText= "Update ThietBi Set Qty=Qty-" + qty + " where TBId =" + id ;
+            _sqlcm.CommandType = CommandType.Text;
+            conn.Open();
+            int result = _sqlcm.ExecuteNonQuery();
+            conn.Close();
+       }
+
         public DataTable GetAll()
         {
             try
@@ -68,5 +79,8 @@ namespace DAO
         {
             throw new NotImplementedException();
         }
+
+       
+        
     }
 }

@@ -52,6 +52,13 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
             TotalPrice += parseInt(item.Price);
         })
         $('#tblSelectedProduct').append(render);
+        $('#tblProduct > tbody > tr').each(function (i, item) {
+            var thisId = $(this).find('td:eq(0)>input').attr('value');
+            var pos = tempListSelected.map(function (e) { return e.TBId; }).indexOf(thisId);
+            if (pos >= 0) {
+                $(this).find('td:eq(0)>input').attr("disabled", true);
+            }
+        })
         $('#frmProduct').trigger('reset');
         tempListSelected = [];
         $('#lblTotalPrice').text(TotalPrice);
@@ -63,6 +70,11 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
         thisObj.parent('tr').remove();
         TotalPrice = TotalPrice - parseInt($(this).parent('tr').find('td:eq(2)').text());
         $('#lblTotalPrice').text(TotalPrice);
+        $('#tblProduct > tbody > tr').each(function (i, item) {
+            if ($(this).find('td:eq(0)>input').attr('value') == id) {
+                $(this).find('td:eq(0)>input').attr("disabled", false);
+            }
+        })
         index = listSelected.findIndex(x => x.TBId == id);
         listSelected.splice(index, 1);
     })

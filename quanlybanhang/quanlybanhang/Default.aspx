@@ -3,20 +3,22 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <form id="frmSearch">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="txtSearch">Tìm theo tên</label>
-                <input type="text" id="txtSearch" class="form-control" runat="server">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="slcType">Tìm theo loại</label>
-                <select id="slcType" class="form-control" onchange="LoadTypeData()" runat="server">
-                    <option selected>Choose...</option>
-                </select>
-            </div>
+        <h1>Xin chào! Mua gì hông nạ?</h1>
+        <div class="form group form-row">
+            <div class="col-md-12 row">
+                <div class="col-md-5">
+                      <input type="text" id="txtSearch" class="form-control" runat="server" placeholder="Nhập tên Sản phẩm">
+                        
+                </div>
+                 <div class="col-md-1">
+                      <button type="button" class="btn btn-primary"  id="findTB" style="float:left" onclick="LoadTBByName()"><i class="fa fa-search"></i></button>
+                 </div>
+             
+           
         </div>        
     </form>
     <form id="frmProduct">
+        <div class="row">
         <div class="col-sm-5">
             <table class="table table-bordered" id="tblProduct" >
                 <thead>
@@ -39,6 +41,7 @@
     </div>
 
     <div class="col-sm-5">
+        
         <table class="table table-bordered" id="tblSelected">
             <thead>
                 <tr>
@@ -55,12 +58,13 @@
         <div style="display: -webkit-box;">
             <h3>Tổng tiền:</h3> <h3 id="lblTotalPrice"></h3>
         </div>
+        <h4>Khách hàng khi mua COMBO 2 loại sản phẩm khác nhau trở lên sẽ được giảm giá 10%!</h4>
     </div>
 
     <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">
         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#LapHoaDon" id="btnLapHoaDon">Lập hóa đơn</button>
     </div>
-
+    </div>
     <!--Modal-->
     <form id="formMuahang">
         <div class="modal fade" id="LapHoaDon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

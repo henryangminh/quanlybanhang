@@ -10,7 +10,7 @@ namespace DTO.Entities
     {
         public int Id { get; set; }
         public int HoaDonID { get; set; }
-        public int TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
         public DateTime DateDelivery { get; set; }
         public string CustomerName { get; set; }
         public string DeliveryContact { get; set; }
@@ -18,7 +18,7 @@ namespace DTO.Entities
 
         public GiaoHangDTO() {  }
 
-        public GiaoHangDTO(int Id, int HoaDonID, int TotalPrice, DateTime DateDelivery, string CustomerName, string DeliveryContact, string DeliveryAddress)
+        public GiaoHangDTO(int Id, int HoaDonID, double TotalPrice, DateTime DateDelivery, string CustomerName, string DeliveryContact, string DeliveryAddress)
         {
             this.Id = Id;
             this.HoaDonID = HoaDonID;

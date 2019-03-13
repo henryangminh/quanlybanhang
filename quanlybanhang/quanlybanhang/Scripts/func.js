@@ -3,6 +3,8 @@ function PageLoad() {
     var tempListSelected = [];
     
     var TotalPrice = 0;
+    var FinalPrice = 0;
+    var _saleoff;
     registerEvent(tempListSelected, listSelected, TotalPrice);
 }
 function keyispressed(e) {
@@ -130,6 +132,10 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
                 '<th>STT</th><th>Tên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th>' +
                 '</tr>';
             */
+           
+            if (listSelected.length > 1) { _saleoff = 0.1 }
+            else { _saleoff = 0; }
+            FinalPrice = parseFloat(TotalPrice - (TotalPrice * _saleoff))
             $.each(listSelected, function (i, item) {
                 render += '<tr value="' + item.TBId + '">' +
                     '<td>' + (i + 1) + '</td>' +
@@ -139,9 +145,11 @@ function registerEvent(tempListSelected, listSelected, TotalPrice) {
                     '</tr>';
             })
             render += '<tr>' +
-                '<td colspan="4"><h4>Tổng tiền:</h4><input type="text" id="txtTotalPrice" readonly value="'+ TotalPrice +'" runat"server"></td>' +
+                '<td colspan="2"><h4>Tổng tiền:</h4><input type="text" id="txtTotalPrice" readonly value="' + TotalPrice + '" runat"server"></td>' +
+                '<td colspan="2"><h4>Sau khi giảm giá:</h4><input type="text" id="txtTotalPrice" readonly value="' + FinalPrice + '" runat"server"></td>' +
                 '</tr>';
             $(render).appendTo($('#tblSelectedProducts'))
+            
         }
         $('#btnLapHoaDon').click(getSelected);
     })
@@ -248,11 +256,14 @@ function SaveKH() {
 }
 function SaveHoaDon(TotalPrice) {
     //var hdId = 0;
+    
     var khId = parseInt($('#MainContent_txtCustomerID').val());
     if (khId == 0) { alert("Khách hàng không tồn tại") }
     else {
+        
         var totalPrice = parseInt($('#txtTotalPrice').val());
         var listCTHD = [];
+        var listthietbisaumua = [];
         var _customname;
         if ($('#MainContent_txtTenKhachGiao').val() == "") {
             _customname = $('#MainContent_txtCustomerName').val();
@@ -277,7 +288,7 @@ function SaveHoaDon(TotalPrice) {
         var _gh = {
             GHId: 0,
             HDId: 0,
-            TotalPrice: totalPrice,
+            TotalPrice: parseFloat(FinalPrice),
             CustomerName: _customname,
             DeliveryContact: _contact,
             DeliveryAddress: _address,
@@ -296,11 +307,37 @@ function SaveHoaDon(TotalPrice) {
                 SubTotal: _cthdPrice,
             };
             listCTHD.push(_cthd);
+            var _thietbisaumua = {
+                TBId: _cthdID,
+                Qty: _cthdQty,
+            }
+            listthietbisaumua.push(_thietbisaumua);
         })
 
         var _saleoff;
         if (listSelected.length > 1) { _saleoff = 0.1 }
-        else { _saleoff = 0;}
+        else { _saleoff = 0; }
+        function TruSLTon()
+        {
+            $.each(listthietbisaumua, function (i, item) {
+                $.ajax({
+                    type: "POST",
+                    url: "Default.aspx/UpdateTBQty",
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    data: JSON.stringify({ 'id': item.TBId, 'qty': item.Qty }),
+
+                    error: function (e) {
+                        console.log(e);
+                    },
+                    success: function (resultSLT) {
+                        console.log('successTruSLTON');
+
+                        location.reload();
+                    }
+                });
+            });
+        }
         $.ajax({
             type: "POST",
             url: "Default.aspx/SaveInvoice",
@@ -308,11 +345,6 @@ function SaveHoaDon(TotalPrice) {
             dataType: 'json',
             data: JSON.stringify({ 'KhId': khId, 'total': totalPrice, 'saleoff': _saleoff   , 'listCTHD': listCTHD, 'GH': _gh }),
 
-            //{
-            //    //mahd: hdid,
-            //    khid: khid,
-            //    total:  totalprice,
-            //},
             error: function (e) {
                 console.log(e);
             },
@@ -324,9 +356,64 @@ function SaveHoaDon(TotalPrice) {
                 $('#tblSelectedProduct').empty();
                 $('#lblTotalPrice').text(0);
                 alert("Lập hóa đơn thành công");
+             
+                TruSLTon();
+                location.reload();
+              
             }
         });
+       
+       
     }
+}
+
+function LoadTBByName() {
+    var keyword = $('#MainContent_txtSearch').val();
+    var a="";
+    
+    $.ajax({
+        type: "POST",
+        url: "Default.aspx/GetByName",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        data:
+            "{ keyword: '" + keyword + "' }",
+        error: function (e) {
+
+        },
+        success: function (result) {
+            $('#MainContent_tbl_ThietBi').empty();
+            
+            $.each(result.d, function (i, item) {
+                $.ajax({
+                    type: "POST",
+                    url: "Default.aspx/GetLTBById",
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    data:
+                        "{ id: '" + item.LTBId + "' }",
+                    error: function (e) {
+                        console.log(e)
+                    },
+                    success: function (result1) {
+                        a += '<tr><td><input type="checkbox" runat="server" id="chkSelected" value="1" oncheckedchanged="addListSelect"></td>' +
+                            '<td>' + item.TBName + '</td>' +
+                            '<td>' + result1.d.TypeName + '</td>' +
+                            '<td>' + item.Price + '</td>' +
+                            '<td>' + item.Qty + '</td></tr>'
+                        $('#MainContent_tbl_ThietBi').append(a);
+                    },
+                });
+                
+            });
+           
+            
+               
+             
+        }
+
+    });
+    
 }
 
 function LoadTypeData() {

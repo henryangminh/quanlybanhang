@@ -58,7 +58,7 @@
         <div style="display: -webkit-box;">
             <h3>Tổng tiền:</h3> <h3 id="lblTotalPrice"></h3>
         </div>
-        <h4>Khách hàng khi mua COMBO 2 loại sản phẩm khác nhau trở lên sẽ được giảm giá 10%!</h4>
+        <h4>Khách hàng khi mua COMBO 2 sản phẩm khác nhau trở lên sẽ được giảm giá 10%!</h4>
     </div>
 
     <div class="col-sm-12" style="display: flex;justify-content: center;align-items: center;">
@@ -189,4 +189,5 @@
         </div>
     </div>
 </div>
+
 </asp:Content>

@@ -15,7 +15,7 @@ namespace quanlybanhang
 {
     public partial class _Default : Page
     {
-        static ThietBiBUS tbBus = new ThietBiBUS();
+        ThietBiBUS tbBus = new ThietBiBUS();
         LoaiThietBiBUS ltbBus = new LoaiThietBiBUS();
         static KhachHangBUS khBus = new KhachHangBUS();
 
@@ -37,6 +37,8 @@ namespace quanlybanhang
             foreach (DataRow row in tb.Rows)
             {
                 HtmlTableRow row2 = new HtmlTableRow();
+                string isDisable = "";
+                if (row.ItemArray[4].ToString() == "0") isDisable = "disabled";
                 foreach (var item in row.ItemArray)
                 {
 
@@ -46,13 +48,14 @@ namespace quanlybanhang
                     cell.InnerText = item.ToString();
                     if (row2.Cells.Count == 0)
                     {
-                        cell.InnerHtml = "<input type='checkbox' runat='server' ID='chkSelected' value='" + item + "' OnCheckedChanged='addListSelect'/>";
+                        cell.InnerHtml = "<input type='checkbox' runat='server' ID='chkSelected' value='" + item + "' "+ isDisable +" />";
                     }
                     if (row2.Cells.Count == 2)
                     {
                         LoaiThietBiDTO loaiThietBiDTO = ltbBus.GetById(Convert.ToInt32(item));
                         cell.InnerText = loaiThietBiDTO.TypeName;
                     }
+                    
 
                     row2.Cells.Add(cell);
 

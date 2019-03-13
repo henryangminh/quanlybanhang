@@ -5,6 +5,7 @@ function PageLoad() {
     var TotalPrice = 0;
     var FinalPrice = 0;
     var _saleoff;
+    
     registerEvent(tempListSelected, listSelected, TotalPrice);
 }
 function keyispressed(e) {
@@ -15,7 +16,8 @@ function keyispressed(e) {
     return true;
 }
 function registerEvent(tempListSelected, listSelected, TotalPrice) {
-    
+
+    checkOutOfStock();
 
     $('body').on('change', '#chkSelected', function () {
         if ($(this).is(":checked")) {
@@ -369,7 +371,7 @@ function SaveHoaDon(TotalPrice) {
 
 function LoadTBByName() {
     var keyword = $('#MainContent_txtSearch').val();
-    var a="";
+    
     
     $.ajax({
         type: "POST",
@@ -396,11 +398,11 @@ function LoadTBByName() {
                         console.log(e)
                     },
                     success: function (result1) {
-                        a += '<tr><td><input type="checkbox" runat="server" id="chkSelected" value="1" oncheckedchanged="addListSelect"></td>' +
+                       var a = '<tr><td><input type="checkbox" runat="server" id="chkSelected" value="1" oncheckedchanged="addListSelect"></td>' +
                             '<td>' + item.TBName + '</td>' +
                             '<td>' + result1.d.TypeName + '</td>' +
                             '<td>' + item.Price + '</td>' +
-                            '<td>' + item.Qty + '</td></tr>'
+                            '<td>' + item.Qty + '</td></tr>';
                         $('#MainContent_tbl_ThietBi').append(a);
                     },
                 });
@@ -442,6 +444,14 @@ function LoadTypeData() {
     });
 
 }
+
+function checkOutOfStock() {
+    $('#tblProduct > tbody > tr').each(function (i, item) {
+        if ((parseInt($(this).find('td:eq(4)')).find('td:eq(4)').text()) == 0)
+            $(this).find('td:eq(0)>input').attr('disable', true);
+    })
+}
+
 
 
 PageLoad();

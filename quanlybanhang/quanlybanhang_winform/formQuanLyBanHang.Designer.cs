@@ -70,19 +70,12 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.grvProductType = new System.Windows.Forms.DataGridView();
-            this.txtProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLTBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditProductType = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAddProductType = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.txtProductTypeNameInput = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnSearchProductType = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblInvoiceSaleOff = new System.Windows.Forms.Label();
@@ -90,34 +83,38 @@
             this.lblInvoiceDetailsId = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.grvInvoiceDetails = new System.Windows.Forms.DataGridView();
-            this.txtInvoiceDetailsProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtInvoiceDetailsSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblInvoiceDetailsPayment = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.lblInvoiceTotalPrice = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.grvInvoice = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.grvCustomer = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.grvDelivery = new System.Windows.Forms.DataGridView();
             this.txtInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceKhachHangId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceSaleOff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInvoiceTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInvoiceDetails = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.grvCustomer = new System.Windows.Forms.DataGridView();
+            this.txtInvoiceDetailsProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInvoiceDetailsSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLTBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditProductType = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtCustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.grvDelivery = new System.Windows.Forms.DataGridView();
             this.txtDeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDeliveryInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPriceDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDeliveryCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDeliveryCustomerContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -453,10 +450,6 @@
             this.tbpLoaiThietBi.Controls.Add(this.panel6);
             this.tbpLoaiThietBi.Controls.Add(this.grvProductType);
             this.tbpLoaiThietBi.Controls.Add(this.panel4);
-            this.tbpLoaiThietBi.Controls.Add(this.btnSearchProductType);
-            this.tbpLoaiThietBi.Controls.Add(this.textBox1);
-            this.tbpLoaiThietBi.Controls.Add(this.label15);
-            this.tbpLoaiThietBi.Controls.Add(this.panel3);
             this.tbpLoaiThietBi.Location = new System.Drawing.Point(4, 22);
             this.tbpLoaiThietBi.Name = "tbpLoaiThietBi";
             this.tbpLoaiThietBi.Padding = new System.Windows.Forms.Padding(3);
@@ -543,25 +536,6 @@
             this.grvProductType.Size = new System.Drawing.Size(410, 455);
             this.grvProductType.TabIndex = 0;
             // 
-            // txtProductTypeID
-            // 
-            this.txtProductTypeID.HeaderText = "Id";
-            this.txtProductTypeID.Name = "txtProductTypeID";
-            // 
-            // txtLTBName
-            // 
-            this.txtLTBName.HeaderText = "Tên Loại Thiết Bị";
-            this.txtLTBName.Name = "txtLTBName";
-            this.txtLTBName.Width = 210;
-            // 
-            // btnEditProductType
-            // 
-            this.btnEditProductType.HeaderText = "";
-            this.btnEditProductType.Name = "btnEditProductType";
-            this.btnEditProductType.Text = "Sửa";
-            this.btnEditProductType.UseColumnTextForButtonValue = true;
-            this.btnEditProductType.Width = 55;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnAddProductType);
@@ -569,7 +543,7 @@
             this.panel4.Controls.Add(this.txtProductTypeNameInput);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label16);
-            this.panel4.Location = new System.Drawing.Point(4, 36);
+            this.panel4.Location = new System.Drawing.Point(4, 16);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(409, 75);
             this.panel4.TabIndex = 5;
@@ -615,38 +589,6 @@
             this.label16.Size = new System.Drawing.Size(307, 29);
             this.label16.TabIndex = 6;
             this.label16.Text = "Thêm Loại Sản Phẩm Mới";
-            // 
-            // btnSearchProductType
-            // 
-            this.btnSearchProductType.Location = new System.Drawing.Point(329, 6);
-            this.btnSearchProductType.Name = "btnSearchProductType";
-            this.btnSearchProductType.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchProductType.TabIndex = 3;
-            this.btnSearchProductType.Text = "Tìm";
-            this.btnSearchProductType.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(80, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Tìm theo tên";
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(4, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(409, 23);
-            this.panel3.TabIndex = 4;
             // 
             // tabPage3
             // 
@@ -726,29 +668,6 @@
             this.grvInvoiceDetails.Size = new System.Drawing.Size(397, 448);
             this.grvInvoiceDetails.TabIndex = 14;
             // 
-            // txtInvoiceDetailsProductId
-            // 
-            this.txtInvoiceDetailsProductId.HeaderText = "Thiết Bị Id";
-            this.txtInvoiceDetailsProductId.Name = "txtInvoiceDetailsProductId";
-            this.txtInvoiceDetailsProductId.Width = 80;
-            // 
-            // txtInvoiceDetailsProductName
-            // 
-            this.txtInvoiceDetailsProductName.HeaderText = "Tên Sản Phẩm";
-            this.txtInvoiceDetailsProductName.Name = "txtInvoiceDetailsProductName";
-            this.txtInvoiceDetailsProductName.Width = 120;
-            // 
-            // txtInvoiceDetailsQty
-            // 
-            this.txtInvoiceDetailsQty.HeaderText = "Số Lượng";
-            this.txtInvoiceDetailsQty.Name = "txtInvoiceDetailsQty";
-            this.txtInvoiceDetailsQty.Width = 50;
-            // 
-            // txtInvoiceDetailsSubTotal
-            // 
-            this.txtInvoiceDetailsSubTotal.HeaderText = "Thành tiền";
-            this.txtInvoiceDetailsSubTotal.Name = "txtInvoiceDetailsSubTotal";
-            // 
             // lblInvoiceDetailsPayment
             // 
             this.lblInvoiceDetailsPayment.AutoSize = true;
@@ -810,41 +729,6 @@
             this.grvInvoice.Size = new System.Drawing.Size(514, 561);
             this.grvInvoice.TabIndex = 0;
             // 
-            // txtInvoiceId
-            // 
-            this.txtInvoiceId.HeaderText = "Id";
-            this.txtInvoiceId.Name = "txtInvoiceId";
-            this.txtInvoiceId.Width = 40;
-            // 
-            // txtInvoiceKhachHangId
-            // 
-            this.txtInvoiceKhachHangId.HeaderText = "Mã Khách Hàng";
-            this.txtInvoiceKhachHangId.Name = "txtInvoiceKhachHangId";
-            // 
-            // txtInvoiceDateCreated
-            // 
-            this.txtInvoiceDateCreated.HeaderText = "Ngày Lập";
-            this.txtInvoiceDateCreated.Name = "txtInvoiceDateCreated";
-            // 
-            // txtInvoiceSaleOff
-            // 
-            this.txtInvoiceSaleOff.HeaderText = "Giảm Giá";
-            this.txtInvoiceSaleOff.Name = "txtInvoiceSaleOff";
-            this.txtInvoiceSaleOff.Width = 50;
-            // 
-            // txtInvoiceTotalPrice
-            // 
-            this.txtInvoiceTotalPrice.HeaderText = "Tổng tiền";
-            this.txtInvoiceTotalPrice.Name = "txtInvoiceTotalPrice";
-            this.txtInvoiceTotalPrice.Width = 80;
-            // 
-            // btnInvoiceDetails
-            // 
-            this.btnInvoiceDetails.HeaderText = "";
-            this.btnInvoiceDetails.Name = "btnInvoiceDetails";
-            this.btnInvoiceDetails.Text = "Xem Chi Tiết";
-            this.btnInvoiceDetails.UseColumnTextForButtonValue = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel8);
@@ -877,30 +761,6 @@
             this.grvCustomer.Size = new System.Drawing.Size(918, 564);
             this.grvCustomer.TabIndex = 0;
             // 
-            // txtCustomerId
-            // 
-            this.txtCustomerId.HeaderText = "Khách hàng Id";
-            this.txtCustomerId.Name = "txtCustomerId";
-            this.txtCustomerId.Width = 150;
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.HeaderText = "Tên Khách Hàng";
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Width = 150;
-            // 
-            // txtCustomerContact
-            // 
-            this.txtCustomerContact.HeaderText = "Số Điện Thoại";
-            this.txtCustomerContact.Name = "txtCustomerContact";
-            this.txtCustomerContact.Width = 150;
-            // 
-            // txtCustomerAddress
-            // 
-            this.txtCustomerAddress.HeaderText = "Địa Chỉ";
-            this.txtCustomerAddress.Name = "txtCustomerAddress";
-            this.txtCustomerAddress.Width = 425;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.panel9);
@@ -927,6 +787,7 @@
             this.grvDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txtDeliveryId,
             this.txtDeliveryInvoiceId,
+            this.txtPriceDelivery,
             this.txtDeliveryDate,
             this.txtDeliveryCustomerName,
             this.txtDeliveryCustomerContact,
@@ -936,38 +797,167 @@
             this.grvDelivery.Size = new System.Drawing.Size(919, 564);
             this.grvDelivery.TabIndex = 0;
             // 
+            // txtInvoiceId
+            // 
+            this.txtInvoiceId.HeaderText = "Id";
+            this.txtInvoiceId.Name = "txtInvoiceId";
+            this.txtInvoiceId.ReadOnly = true;
+            this.txtInvoiceId.Width = 40;
+            // 
+            // txtInvoiceKhachHangId
+            // 
+            this.txtInvoiceKhachHangId.HeaderText = "Mã Khách Hàng";
+            this.txtInvoiceKhachHangId.Name = "txtInvoiceKhachHangId";
+            this.txtInvoiceKhachHangId.ReadOnly = true;
+            // 
+            // txtInvoiceDateCreated
+            // 
+            this.txtInvoiceDateCreated.HeaderText = "Ngày Lập";
+            this.txtInvoiceDateCreated.Name = "txtInvoiceDateCreated";
+            this.txtInvoiceDateCreated.ReadOnly = true;
+            // 
+            // txtInvoiceSaleOff
+            // 
+            this.txtInvoiceSaleOff.HeaderText = "Giảm Giá";
+            this.txtInvoiceSaleOff.Name = "txtInvoiceSaleOff";
+            this.txtInvoiceSaleOff.ReadOnly = true;
+            this.txtInvoiceSaleOff.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.txtInvoiceSaleOff.Width = 50;
+            // 
+            // txtInvoiceTotalPrice
+            // 
+            this.txtInvoiceTotalPrice.HeaderText = "Tổng tiền";
+            this.txtInvoiceTotalPrice.Name = "txtInvoiceTotalPrice";
+            this.txtInvoiceTotalPrice.ReadOnly = true;
+            this.txtInvoiceTotalPrice.Width = 80;
+            // 
+            // btnInvoiceDetails
+            // 
+            this.btnInvoiceDetails.HeaderText = "";
+            this.btnInvoiceDetails.Name = "btnInvoiceDetails";
+            this.btnInvoiceDetails.Text = "Xem Chi Tiết";
+            this.btnInvoiceDetails.UseColumnTextForButtonValue = true;
+            // 
+            // txtInvoiceDetailsProductId
+            // 
+            this.txtInvoiceDetailsProductId.HeaderText = "Thiết Bị Id";
+            this.txtInvoiceDetailsProductId.Name = "txtInvoiceDetailsProductId";
+            this.txtInvoiceDetailsProductId.ReadOnly = true;
+            this.txtInvoiceDetailsProductId.Width = 80;
+            // 
+            // txtInvoiceDetailsProductName
+            // 
+            this.txtInvoiceDetailsProductName.HeaderText = "Tên Sản Phẩm";
+            this.txtInvoiceDetailsProductName.Name = "txtInvoiceDetailsProductName";
+            this.txtInvoiceDetailsProductName.ReadOnly = true;
+            this.txtInvoiceDetailsProductName.Width = 120;
+            // 
+            // txtInvoiceDetailsQty
+            // 
+            this.txtInvoiceDetailsQty.HeaderText = "Số Lượng";
+            this.txtInvoiceDetailsQty.Name = "txtInvoiceDetailsQty";
+            this.txtInvoiceDetailsQty.ReadOnly = true;
+            this.txtInvoiceDetailsQty.Width = 50;
+            // 
+            // txtInvoiceDetailsSubTotal
+            // 
+            this.txtInvoiceDetailsSubTotal.HeaderText = "Thành tiền";
+            this.txtInvoiceDetailsSubTotal.Name = "txtInvoiceDetailsSubTotal";
+            this.txtInvoiceDetailsSubTotal.ReadOnly = true;
+            // 
+            // txtProductTypeID
+            // 
+            this.txtProductTypeID.HeaderText = "Id";
+            this.txtProductTypeID.Name = "txtProductTypeID";
+            this.txtProductTypeID.ReadOnly = true;
+            // 
+            // txtLTBName
+            // 
+            this.txtLTBName.HeaderText = "Tên Loại Thiết Bị";
+            this.txtLTBName.Name = "txtLTBName";
+            this.txtLTBName.ReadOnly = true;
+            this.txtLTBName.Width = 210;
+            // 
+            // btnEditProductType
+            // 
+            this.btnEditProductType.HeaderText = "";
+            this.btnEditProductType.Name = "btnEditProductType";
+            this.btnEditProductType.Text = "Sửa";
+            this.btnEditProductType.UseColumnTextForButtonValue = true;
+            this.btnEditProductType.Width = 55;
+            // 
+            // txtCustomerId
+            // 
+            this.txtCustomerId.HeaderText = "Khách hàng Id";
+            this.txtCustomerId.Name = "txtCustomerId";
+            this.txtCustomerId.ReadOnly = true;
+            this.txtCustomerId.Width = 150;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.HeaderText = "Tên Khách Hàng";
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.ReadOnly = true;
+            this.txtCustomerName.Width = 150;
+            // 
+            // txtCustomerContact
+            // 
+            this.txtCustomerContact.HeaderText = "Số Điện Thoại";
+            this.txtCustomerContact.Name = "txtCustomerContact";
+            this.txtCustomerContact.ReadOnly = true;
+            this.txtCustomerContact.Width = 150;
+            // 
+            // txtCustomerAddress
+            // 
+            this.txtCustomerAddress.HeaderText = "Địa Chỉ";
+            this.txtCustomerAddress.Name = "txtCustomerAddress";
+            this.txtCustomerAddress.ReadOnly = true;
+            this.txtCustomerAddress.Width = 425;
+            // 
             // txtDeliveryId
             // 
             this.txtDeliveryId.HeaderText = "Giao Hàng Id";
             this.txtDeliveryId.Name = "txtDeliveryId";
+            this.txtDeliveryId.ReadOnly = true;
             // 
             // txtDeliveryInvoiceId
             // 
             this.txtDeliveryInvoiceId.HeaderText = "Hóa Đơn Id";
             this.txtDeliveryInvoiceId.Name = "txtDeliveryInvoiceId";
+            this.txtDeliveryInvoiceId.ReadOnly = true;
+            // 
+            // txtPriceDelivery
+            // 
+            this.txtPriceDelivery.HeaderText = "Tổng tiền";
+            this.txtPriceDelivery.Name = "txtPriceDelivery";
+            this.txtPriceDelivery.ReadOnly = true;
             // 
             // txtDeliveryDate
             // 
             this.txtDeliveryDate.HeaderText = "Ngày Giao";
             this.txtDeliveryDate.Name = "txtDeliveryDate";
+            this.txtDeliveryDate.ReadOnly = true;
             // 
             // txtDeliveryCustomerName
             // 
             this.txtDeliveryCustomerName.HeaderText = "Tên Người Nhận";
             this.txtDeliveryCustomerName.Name = "txtDeliveryCustomerName";
+            this.txtDeliveryCustomerName.ReadOnly = true;
             this.txtDeliveryCustomerName.Width = 150;
             // 
             // txtDeliveryCustomerContact
             // 
             this.txtDeliveryCustomerContact.HeaderText = "SĐT Người Nhận";
             this.txtDeliveryCustomerContact.Name = "txtDeliveryCustomerContact";
-            this.txtDeliveryCustomerContact.Width = 150;
+            this.txtDeliveryCustomerContact.ReadOnly = true;
+            this.txtDeliveryCustomerContact.Width = 125;
             // 
             // txtDeliveryCustomerAddress
             // 
             this.txtDeliveryCustomerAddress.HeaderText = "Địa Chỉ Nhận Hàng";
             this.txtDeliveryCustomerAddress.Name = "txtDeliveryCustomerAddress";
-            this.txtDeliveryCustomerAddress.Width = 275;
+            this.txtDeliveryCustomerAddress.ReadOnly = true;
+            this.txtDeliveryCustomerAddress.Width = 225;
             // 
             // formQuanLyBanHang
             // 
@@ -976,7 +966,7 @@
             this.ClientSize = new System.Drawing.Size(965, 629);
             this.Controls.Add(this.tabConTrol);
             this.Name = "formQuanLyBanHang";
-            this.Text = "Form1";
+            this.Text = "Quản lý bán hàng";
             this.tabConTrol.ResumeLayout(false);
             this.tbpThietBi.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -985,7 +975,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tbpLoaiThietBi.ResumeLayout(false);
-            this.tbpLoaiThietBi.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvProductType)).EndInit();
@@ -1046,19 +1035,12 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnSearchProductType;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView grvProductType;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtProductTypeNameInput;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnAddProductType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtProductTypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtLTBName;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEditProductType;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnProductTypeEdit;
         private System.Windows.Forms.Label label21;
@@ -1070,34 +1052,38 @@
         private System.Windows.Forms.Label lblInvoiceDetailsId;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView grvInvoiceDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsSubTotal;
         private System.Windows.Forms.Label lblInvoiceDetailsPayment;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label lblInvoiceTotalPrice;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridView grvInvoice;
+        private System.Windows.Forms.Label lblInvoiceSaleOff;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DataGridView grvCustomer;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView grvDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtProductTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtLTBName;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditProductType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDetailsSubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceKhachHangId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceDateCreated;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceSaleOff;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtInvoiceTotalPrice;
         private System.Windows.Forms.DataGridViewButtonColumn btnInvoiceDetails;
-        private System.Windows.Forms.Label lblInvoiceSaleOff;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView grvCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCustomerAddress;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DataGridView grvDelivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryInvoiceId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtPriceDelivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryCustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDeliveryCustomerContact;
